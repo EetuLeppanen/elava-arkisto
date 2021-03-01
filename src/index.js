@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import SearchBar from './SearchBar';
+import ElasticSearch from './ElasticSearch';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <SearchBar />
+    <ElasticSearch/>
   </React.StrictMode>,
   document.getElementById('root')
 );
