@@ -24,7 +24,7 @@ function MenuMUI () {
     <AppBar position='static'>
       <Toolbar>
          <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>
-         <Typography variant='h5' style={ {flexGrow: 1, textAlign: 'center'} }>Kyselysovellus</Typography>
+         <Typography variant='h5' style={ {flexGrow: 1, textAlign: 'center'} }>Hakusovellus</Typography>
       </Toolbar>
     </AppBar>
 
@@ -40,9 +40,9 @@ function MenuMUI () {
           <ListItemIcon><HomeIcon /></ListItemIcon>
           <ListItemText primary='Etusivu' />
         </MenuItem>
-        <MenuItem onClick={ handleClose } component={ Link } to='/valitsekysely'>
+        <MenuItem onClick={ handleClose } component={ Link } to='/hakukone'>
           <ListItemIcon><KeyboardArrowRightIcon /></ListItemIcon>
-          <ListItemText primary='Valitse kysely' />
+          <ListItemText primary='Hae' />
         </MenuItem>
         
         
