@@ -10,11 +10,9 @@ import ElasticSearch from './ElasticSearch';
 
 
 ReactDOM.render(
-  <MuiThemeProvider>
   <React.StrictMode>
     <SearchBar/>
-  </React.StrictMode>
-  </MuiThemeProvider>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
