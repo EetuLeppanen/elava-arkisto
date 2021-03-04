@@ -1,4 +1,5 @@
 import React from 'react';
+import MuiThemeProvider from '@material-ui/core/styles/';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -7,10 +8,13 @@ import SearchBar from './SearchBar';
 import ElasticSearch from './ElasticSearch';
 
 
+
 ReactDOM.render(
+  <MuiThemeProvider>
   <React.StrictMode>
-    <ElasticSearch/>
-  </React.StrictMode>,
+    <SearchBar/>
+  </React.StrictMode>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 
