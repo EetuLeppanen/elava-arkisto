@@ -23,7 +23,7 @@ function SearchBar () {
   }
 
   const [data, setData] = useState({"name":null});
-  const targetUrl = 'http://46.101.128.190:9200/testataan/_doc/1'
+  const targetUrl = 'http://46.101.128.190:9200/testataan/_doc/2'
 
   useEffect(() => {
     fetch(targetUrl)
@@ -41,7 +41,7 @@ console.log(JSON.stringify(data))
 
     
       return (
-        <div>NIMET:
+        <div>
           {data.name}
         </div>
         
