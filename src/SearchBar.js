@@ -1,45 +1,52 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import './App.css';
 
-import NamesContainer from './NamesContainer';
 
-class SearchBar extends React.Component {
+function SearchBar () {
 
-  state = {
-    names: [
-      'Joonas', 'Eetu', 'Kimi', 'Kristian', 'Aaretti', 'Noel',
-    ],
-    searchTerm: ''
-  }
+  
   
 
-  editSearchTerm = (e) => {
-    this.setState({searchTerm: e.target.value})
+  const [searchterm, setSearchterm] = React.useState('');
+  const [names, setNames] = React.useState([]);
+  
+
+  const editSearchterm = (e) => setSearchterm(e.target.value);
+  
+
+  const dynamicSearch = () => {
+
+
+   
+    return names.filter(name => name.toLowerCase().includes(searchterm.toLowerCase())).sort()
   }
 
-  dynamicSearch = () => {
-   // if (this.state.searchTerm.length > 0) {
-    return this.state.names.filter(name => name.toLowerCase().includes(this.state.searchTerm.toLowerCase())).sort()
-    //}
-  }
+  const [data, setData] = useState({"name":null});
+  const targetUrl = 'http://46.101.128.190:9200/testataan/_doc/1'
 
-  //nameRender = () => {
-    //for (i = 0; i < 5; i++) {return NamesContainer }
-  //}
+  useEffect(() => {
+    fetch(targetUrl)
+    .then(response => response.json())
+    .then(data => setData(data._source))
+    .catch(error => console.error(error))
+}, []);
 
 
-    render(){
+
+ 
+
+  
+console.log(JSON.stringify(data))
+
+    
       return (
-        <div style = {{textAlign: 'center', paddingTop: '30vh'}}>
-          <input type= 'text' value = {this.state.searchTerm} onChange = {this.editSearchTerm} placeholder = 'Etsi nimeä!'/>
-          <br></br>
-          <h3>Hakuusi sopivat nimet:</h3>
-          <NamesContainer names = {this.dynamicSearch()}/>
-          
+        <div>NIMET:
+          {data.name}
         </div>
+        
       );
     }
-}
+
 
 export default SearchBar;

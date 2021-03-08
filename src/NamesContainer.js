@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Name from './Name'
 
-class NamesContainer extends Component {
-    render() {
+function NamesContainer() {
+    
         return (
             <div>
                 {this.props.names.map(name => <Name name = {name}/>)}
             </div>
         )
     }
-}
 
 export default NamesContainer
