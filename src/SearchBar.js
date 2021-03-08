@@ -9,18 +9,12 @@ function SearchBar () {
   
 
   const [searchterm, setSearchterm] = React.useState('');
-  const [names, setNames] = React.useState([]);
   
 
   const editSearchterm = (e) => setSearchterm(e.target.value);
   
 
-  const dynamicSearch = () => {
-
-
-   
-    return names.filter(name => name.toLowerCase().includes(searchterm.toLowerCase())).sort()
-  }
+  
 
   const [data, setData] = useState({"name":null});
   const targetUrl = 'http://46.101.128.190:9200/testataan/_doc/2'
@@ -32,7 +26,9 @@ function SearchBar () {
     .catch(error => console.error(error))
 }, []);
 
-
+const dynamicSearch = () => {
+ // return {data.name}.filter({data.name} => {data.name}.toLowerCase().includes(searchterm.toLowerCase())).sort()
+}
 
  
 
@@ -41,8 +37,16 @@ console.log(JSON.stringify(data))
 
     
       return (
-        <div>
-          {data.name}
+        <div style = {{textAlign: 'center', paddingTop: '30vh'}}>
+           <input type='text' value={searchterm} onChange = {editSearchterm} placeholder = 'Etsi nimeä!'/>
+           <br></br>
+          <h3>Hakuusi sopivat nimet:</h3>
+          <div>
+          {data.name}  {dynamicSearch()}
+          
+
+          </div>
+          
         </div>
         
       );
