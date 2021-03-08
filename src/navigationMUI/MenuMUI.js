@@ -11,7 +11,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import SearchIcon from '@material-ui/icons/Search';
 
 function MenuMUI () {
