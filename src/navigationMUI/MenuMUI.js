@@ -12,6 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import SearchIcon from '@material-ui/icons/Search';
 
 function MenuMUI () {
   const [anchorMenu, setMenuOpen] = useState(null);
@@ -41,7 +42,7 @@ function MenuMUI () {
           <ListItemText primary='Etusivu' />
         </MenuItem>
         <MenuItem onClick={ handleClose } component={ Link } to='/hakukone'>
-          <ListItemIcon><KeyboardArrowRightIcon /></ListItemIcon>
+          <ListItemIcon><SearchIcon /></ListItemIcon>
           <ListItemText primary='Hae' />
         </MenuItem>
         
