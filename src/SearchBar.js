@@ -10,6 +10,8 @@ function SearchBar () {
   
   const editSearchterm = (e) => setSearchterm(e.target.value);
 
+
+
   useEffect( () => { const query = {
     query: {
       match: {
@@ -23,8 +25,8 @@ function SearchBar () {
       source_content_type: 'application/json'
     }
   }).then((res) => {
-    console.log();
-    setData({ ...data, ["name"]: res.data.hits.hits[0]._source.tyonkuva});
+    console.log(res);
+    setData({ ...data, ["name"]: res.data.hits.hits[0]._source.tyonkuva}); //asetetaan tulos oliolle 'data'
     
   });  }, [])
 
@@ -33,7 +35,7 @@ function SearchBar () {
 
 
 const dynamicSearch = () => {
- // return {data.name}.filter({data.name} => {data.name}.toLowerCase().includes(searchterm.toLowerCase())).sort()
+ return data.name.filter(namet => namet.toLowerCase().includes(searchterm.toLowerCase())).sort()
 }
  
 console.log(JSON.stringify(data))
@@ -45,7 +47,7 @@ console.log(JSON.stringify(data))
           <h3>Hakuusi sopivat nimet:</h3>
           <div>
            
-      <p>{data.name}</p>
+      <p>{namet}</p>
 
           </div>
           
