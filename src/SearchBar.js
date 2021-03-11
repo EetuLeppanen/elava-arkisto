@@ -17,7 +17,7 @@ function SearchBar () {
   
 
   const [data, setData] = useState({"name":null});
-  const targetUrl = 'http://46.101.128.190:9200/testataan/_doc/2'
+  const targetUrl = 'http://46.101.128.190:9200/testataan/_doc/_search?q=name:*'
 
   useEffect(() => {
     fetch(targetUrl)
@@ -42,7 +42,7 @@ console.log(JSON.stringify(data))
            <br></br>
           <h3>Hakuusi sopivat nimet:</h3>
           <div>
-          {data.name}  {dynamicSearch()}
+          {data}  {dynamicSearch()}
           
 
           </div>
