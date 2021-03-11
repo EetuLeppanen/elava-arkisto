@@ -3,7 +3,6 @@ import { MuiThemeProvider, } from '@material-ui/core/styles';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import SearchBar from './SearchBar';
 import ProjektiApp from './ProjektiApp';
 
 
