@@ -9,6 +9,7 @@ import SearchBar from './SearchBar';
 
 
 
+
 const theme = createMuiTheme({
     palette: {
         primary:{
