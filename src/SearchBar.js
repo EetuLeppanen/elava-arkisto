@@ -6,7 +6,9 @@ import FreeSolo from './FreeSolo';
 
 function SearchBar () {
 
-  const [data, setData] = useState({"name":null});
+  const [title, setTitle] = useState({"name":null});
+  const [desc, setDesc] = useState({"name":null});
+  
   const [searchterm, setSearchterm] = React.useState('');
   
   const editSearchterm = (e) => setSearchterm(e.target.value);
@@ -16,7 +18,7 @@ function SearchBar () {
   useEffect( () => { const query = {
     query: {
       match: {
-        "_id": "2AUYF3gBJ_xsVv3hqV1M" //axios lähettää get pyynnön elasticsearchiin näillä parametreillä
+        "_type": "_doc" //axios lähettää get pyynnön elasticsearchiin näillä parametreillä
       }
     }
   };
@@ -27,8 +29,8 @@ function SearchBar () {
     }
   }).then((res) => {
     console.log(res);
-    setData({ ...data, ["name"]: res.data.hits.hits[0]._source.tyonkuva}); //asetetaan tulos oliolle 'data'
-    
+    setTitle({ ...title, ["title"]: res.data.hits.hits[3]._source.OTSIKKO1}); //asetetaan tulos oliolle 'data'
+    setDesc({ ...desc, ["desc"]: res.data.hits.hits[3]._source.SISALTOTIETO});
   });  }, [])
 
 
@@ -37,7 +39,7 @@ function SearchBar () {
 
 
  
-console.log(JSON.stringify(data))
+console.log(JSON.stringify(title))
 
       return ( 
         
@@ -45,7 +47,12 @@ console.log(JSON.stringify(data))
            //<input type='text' value={searchterm} onChange = {editSearchterm} placeholder = 'Etsi nimeä!'/>
            
           
-           <div><FreeSolo/></div>
+           <div>
+             {title.title}
+             <br></br>
+             <br></br>
+             {desc.desc}
+           </div>
         
       );
     }
