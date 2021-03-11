@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import axios from 'axios';
 import './App.css';
 
 
@@ -12,7 +12,23 @@ function SearchBar () {
   
 
   const editSearchterm = (e) => setSearchterm(e.target.value);
-  
+
+  const query = {
+    query: {
+      match: {
+        "name": "pekka"
+      }
+    }
+  };
+  axios.get('http://46.101.128.190:9200/testo/_doc/_search', {
+    params: {
+      source: JSON.stringify(query),
+      source_content_type: 'application/json'
+    }
+  }).then((res) => {
+    console.log(res);
+  });
+
 
   
 
