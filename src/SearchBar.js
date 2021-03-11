@@ -44,7 +44,7 @@ console.log(JSON.stringify(title))
       return ( 
         
       
-           //<input type='text' value={searchterm} onChange = {editSearchterm} placeholder = 'Etsi nimeä!'/>
+         //  <input type='text' value={searchterm} onChange = {editSearchterm} placeholder = 'Etsi nimeä!'/>
            
           
            <div>
