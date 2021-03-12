@@ -9,7 +9,7 @@ import SearchBar from './SearchBar';
 
 
 
-
+//Sivun laajuinen default-teema
 const theme = createMuiTheme({
     palette: {
         primary:{
@@ -64,7 +64,7 @@ const theme = createMuiTheme({
             <CssBaseline/>
             <MenuMUI/>
             <Switch>
-
+            
             <Route exact path='/asd' component={ EtuSivu} />  
             <Route path='/' component= {SearchBar } />
 

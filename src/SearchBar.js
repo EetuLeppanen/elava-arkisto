@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
-import FreeSolo from './FreeSolo';
 import SearchResult from './SearchResult'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField'; 
@@ -13,8 +12,10 @@ function SearchBar () {
   const [searchterm, setSearchterm] = React.useState('');
   const [options, setOptions] = useState([]);
 
-  const editSearchterm = (e) => setSearchterm(e.target.value);
+//Tullaan käyttämään myöhemmin, const hakusanalle
 
+  const editSearchterm = (e) => setSearchterm(e.target.value);
+//Hakee tiedon elasticsearchista
   useEffect( () => { const query = {
     query: {
       match: {
@@ -22,13 +23,13 @@ function SearchBar () {
       }
     }
   };
-  axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasticsearchista
+  axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // Fetch tietokannan osoitteeseen
     params: {
       source: JSON.stringify(query),
       source_content_type: 'application/json'
     }
   }).then((res) => {
-    
+    //Näyttää 4 osumaa haun perusteella
     for (var i = 0; i < 4; i++) { 
       title.push(res.data.hits.hits[i]._source.OTSIKKO1)
       }
@@ -41,9 +42,9 @@ function SearchBar () {
 
 
 console.log(JSON.stringify(title))
-
+//Material-UI:n textInput-elementti
       return (
-           <div style={{ display:'flex', justifyContent:'center',  }}>
+           <div style={{ width:300   }}>
                <Autocomplete
         freeSolo
         id=""

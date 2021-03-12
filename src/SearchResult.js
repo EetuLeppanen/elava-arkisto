@@ -3,7 +3,7 @@ import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-
+//Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
     backgroundColor: '#faf5f5', color: 'black',
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   
 
     },
-
+//Korttien teema
     font: {
         backgroundColor: '#faf5f5', color: 'black',
         fontSize: 20, 
@@ -37,10 +37,10 @@ function SearchResult (props) {
 
 
 return(
-<div style={{ display:'flex', justifyContent:'center' }}>
-<Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
-                      <CardContent>
-                      <Typography className={classes.font2}>{props.title.title}</Typography>
+        <div style={{ display:'flex', justifyContent:'center' }}>
+        <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
+        <CardContent>
+        <Typography className={classes.font2}>{props.title.title}</Typography>
 <br></br>
 <br></br>
 <Typography className={classes.font}> {props.desc} </Typography>
