@@ -43,8 +43,22 @@ function SearchBar () {
 console.log(JSON.stringify(title))
 
       return (
-           <div style={{ display:'flex', justifyContent:'center' }}>
-               <FreeSolo title = {title} desc = {desc.desc}/>
+           <div style={{ display:'flex', justifyContent:'center',  }}>
+               <Autocomplete
+        freeSolo
+        id=""
+        disableClearable
+        options={title}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Haku"
+            margin="normal"
+            variant="outlined"
+            InputProps={{ ...params.InputProps, type: 'search' }}
+          />
+        )}
+      />
 
            </div>      
       );
