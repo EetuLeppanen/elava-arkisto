@@ -1,8 +1,10 @@
+import React, {useState, useEffect} from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
@@ -13,8 +15,6 @@ const useStyles = makeStyles({
     borderColor: "F000000",
     width: "40%",
    
-  
-
     },
 //Korttien teema
     font: {
@@ -23,32 +23,31 @@ const useStyles = makeStyles({
         font: 'poppins',
         borderRadius: 50,
         },
-        font2: {
-            backgroundColor: '#faf5f5', color: 'black',
-            fontSize: 30, 
-            font: 'poppins',
-            borderRadius: 50,
-            },
+    font2: {
+        backgroundColor: '#faf5f5', color: 'black',
+        fontSize: 30, 
+        font: 'poppins',
+        borderRadius: 50,
+         },
 })
 
 function SearchResult (props) {
     const classes = useStyles();
-
-
+    const [valued, setValued] = useState('');
+    let { value } = useParams();
+    console.log(props.value)
 
 return(
-        <div style={{ display:'flex', justifyContent:'center' }}>
+<div style={{ display:'flex', justifyContent:'center' }}>    
         <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
         <CardContent>
-        <Typography className={classes.font2}>{props.title.title}</Typography>
+        <Typography className={classes.font2}>{value}</Typography>
 <br></br>
 <br></br>
-<Typography className={classes.font}> {props.desc} </Typography>
-
-</CardContent>
-</Card>
-</div>
-          
+        <Typography className={classes.font}> {value} </Typography>
+        </CardContent>
+        </Card>
+</div>         
 );
 }
 

@@ -4,48 +4,57 @@ import './App.css';
 import SearchResult from './SearchResult'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField'; 
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button'; 
+import { Link } from 'react-router-dom';
 function SearchBar () {
-
   const [title, setTitle] = useState(['']);
   const [desc, setDesc] = useState({"name":null});
-  const [searchterm, setSearchterm] = React.useState('');
+  const [searchterm, setSearchterm] = useState('');
   const [options, setOptions] = useState([]);
+  const [value, setValue] = useState(options[0]);
+  const [inputValue, setInputValue] = useState('');
 
 //Tullaan käyttämään myöhemmin, const hakusanalle
+const editSearchterm = (e) => setSearchterm(e.target.value);
 
-  const editSearchterm = (e) => setSearchterm(e.target.value);
+
 //Hakee tiedon elasticsearchista
-  useEffect( () => { const query = {
-    query: {
-      match: {
-        "_type": "_doc" //axios lähettää get pyynnön elasticsearchiin näillä parametreillä
-      }
+useEffect( () => { const query = {
+  query: {
+    match_all: {}
+     
+  }
+};
+axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasticsearchista
+  params: {
+    source: JSON.stringify(query),
+    source_content_type: 'application/json'
+  }
+}).then((res) => {
+  for (var i = 0; i < res.data.hits.hits.length; i++) { //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
+    title.push(res.data.hits.hits[i]._source.OTSIKKO1  )
+    setDesc({ ...desc, ["desc"]: res.data.hits.hits[i]._source});
     }
-  };
-  axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // Fetch tietokannan osoitteeseen
-    params: {
-      source: JSON.stringify(query),
-      source_content_type: 'application/json'
-    }
-  }).then((res) => {
-    //Näyttää 4 osumaa haun perusteella
-    for (var i = 0; i < 4; i++) { 
-      title.push(res.data.hits.hits[i]._source.OTSIKKO1)
-      }
-      console.log(i);
-      title.shift();
-      title.splice(1,1)
-    setDesc({ ...desc, ["desc"]: res.data.hits.hits[3]._source.SISALTOTIETO});
-   
-  });  }, [])
+    console.log(title);
+    title.shift();
+    console.log(value)
+});  }, [])
+ 
 
-
-console.log(JSON.stringify(title))
-//Material-UI:n textInput-elementti
+//Material-UI:n Autocomplete 
       return (
-           <div style={{ width:300   }}>
-               <Autocomplete
+           <div >
+         { /*   <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div> */}
+         { /*  <div>{`inputValue: '${inputValue}'`}</div> */}
+        <Autocomplete
+          value={title}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}     
+          inputValue={inputValue}
+          onInputChange={(event, newInputValue) => {
+            setInputValue(newInputValue);
+          }}
         freeSolo
         id=""
         disableClearable
@@ -55,12 +64,13 @@ console.log(JSON.stringify(title))
             {...params}
             label="Haku"
             margin="normal"
-            variant="outlined"
+           /* variant="outlined" */
             InputProps={{ ...params.InputProps, type: 'search' }}
           />
         )}
       />
-
+  <Button variant="contained" component={ Link } 
+                  to= {`/search/${value}`}>Hae</Button>             
            </div>      
       );
     }
