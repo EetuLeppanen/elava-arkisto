@@ -65,10 +65,8 @@ const theme = createMuiTheme({
             <MenuMUI/>
             <Switch>
 
-            <Route exact path='/' component={ EtuSivu} />
-            <Route path='/hakukone' component= {SearchBar } />
-
-
+            <Route exact path='/asd' component={ EtuSivu} />  
+            <Route path='/' component= {SearchBar } />
 
             </Switch>
 

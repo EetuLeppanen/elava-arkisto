@@ -37,8 +37,8 @@ function MenuMUI () {
         onClose={ handleClose}>
           
         <MenuItem onClick={ handleClose } component={ Link } to='/'>
-          <ListItemIcon><HomeIcon /></ListItemIcon>
-          <ListItemText primary='Etusivu' />
+        {  /* <ListItemIcon><HomeIcon /></ListItemIcon>
+        <ListItemText primary='Etusivu' /> */}
         </MenuItem>
         <MenuItem onClick={ handleClose } component={ Link } to='/hakukone'>
           <ListItemIcon><SearchIcon /></ListItemIcon>
