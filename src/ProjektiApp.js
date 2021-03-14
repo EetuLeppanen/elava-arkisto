@@ -4,7 +4,7 @@ import { blue, green } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import MenuMUI from './navigationMUI/MenuMUI';
-import EtuSivu from './EtuSivu';
+import Etusivu from './Etusivu';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -69,7 +69,7 @@ const theme = createMuiTheme({
             <MenuMUI/>
             <Switch>
             <Route path='/search/:value' component= { SearchResult } />
-            <Route exact path='/asd' component={ EtuSivu} />  
+            <Route exact path='/etusivu' component={ Etusivu} />  
             <Route path='/' component= {SearchBar } />
            
             </Switch>

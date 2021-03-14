@@ -4,7 +4,7 @@ import React from 'react';
 
 
 
-function EtuSivu (){
+function Etusivu (){
     return(
 
             <div>
@@ -13,4 +13,4 @@ function EtuSivu (){
 
         )
 }
-export default EtuSivu;
+export default Etusivu;

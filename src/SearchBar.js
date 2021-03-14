@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 function SearchBar () {
   const [title, setTitle] = useState(['']);
-  const [desc, setDesc] = useState({"name":null});
   const [searchterm, setSearchterm] = useState('');
   const [options, setOptions] = useState([]);
   const [value, setValue] = useState(options[0]);
@@ -32,8 +31,8 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
   }
 }).then((res) => {
   for (var i = 0; i < res.data.hits.hits.length; i++) { //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
-    title.push(res.data.hits.hits[i]._source.OTSIKKO1  )
-    setDesc({ ...desc, ["desc"]: res.data.hits.hits[i]._source});
+    title.push(res.data.hits.hits[i]._source.title  )
+ 
     }
     console.log(title);
     title.shift();
@@ -44,7 +43,7 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
 //Material-UI:n Autocomplete 
       return (
            <div >
-         { /*   <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div> */}
+         { /*   <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div> */} {/* debuggaukseen */}
          { /*  <div>{`inputValue: '${inputValue}'`}</div> */}
         <Autocomplete
           value={title}

@@ -4,7 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
@@ -33,22 +34,64 @@ const useStyles = makeStyles({
 
 function SearchResult (props) {
     const classes = useStyles();
-    const [valued, setValued] = useState('');
+    const [titles, setTitles] = useState(['']);
+    const [title, setTitle] = useState({"name":null});
+    const [desc, setDesc] = useState(['']);
     let { value } = useParams();
-    console.log(props.value)
+    const [resultCount, setResultCount] = useState('');
+ 
 
+    useEffect( () => { const query = {
+        query: {
+          match: {
+          "title": <text>"</text> + value + <text>"</text> 
+          }
+           
+        }
+      };
+      axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasticsearchista
+        params: {
+          source: JSON.stringify(query),
+          source_content_type: 'application/json'
+        }
+      }).then((res) => {
+        for (var i = 0; i < res.data.hits.hits.length; i++) { //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
+          titles.push(res.data.hits.hits[i]._source.title  )
+          desc.push(res.data.hits.hits[i]._source.language  )
+          setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
+          
+          }
+          setResultCount(res);
+          console.log(res);
+          console.log(resultCount.data);
+          
+      });  }, []);
+
+      if (resultCount.data !== null) {
+        for (var i = 0; i < titles.length; i++) {
 return(
+    
 <div style={{ display:'flex', justifyContent:'center' }}>    
         <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
         <CardContent>
-        <Typography className={classes.font2}>{value}</Typography>
+        <Typography className={classes.font2}>{titles[1]}</Typography>
 <br></br>
-<br></br>
-        <Typography className={classes.font}> {value} </Typography>
+
+        <Typography className={classes.font}> {desc[1]} </Typography>
         </CardContent>
         </Card>
-</div>         
+</div>   
 );
-}
+}      
 
+} 
+else {
+    return(
+      <div>
+      <p>asd</p>
+      </div>
+  
+    )
+}
+}
 export default SearchResult
