@@ -17,6 +17,15 @@ const useStyles = makeStyles({
     width: "40%",
    
     },
+    ohjelma1: {
+      backgroundColor: '#faf5f5', color: 'black',
+      font: 'poppins',
+      borderRadius: 5,
+      border: "10px",
+      borderColor: "F000000",
+     
+     
+      },
 //Korttien teema
     font: {
         backgroundColor: '#faf5f5', color: 'black',
@@ -62,12 +71,12 @@ function SearchResult (props) {
           
           }
           setResultCount(res);
-          console.log(res);
-          console.log(resultCount.data);
+          console.log(titles[1]);
+          console.log(desc);
           
       });  }, []);
 
-      if (resultCount.data !== null) {
+      if (titles[1] !== undefined) {
         for (var i = 0; i < titles.length; i++) {
 return(
     
@@ -85,11 +94,18 @@ return(
 }      
 
 } 
-else {
+else if (titles[1] === undefined) {
     return(
-      <div>
-      <p>asd</p>
-      </div>
+      <div style={{ display:'flex', justifyContent:'center' }}>    
+        <Card className={classes.ohjelma1} >
+        <CardContent>
+        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>
+<br></br>
+
+        
+        </CardContent>
+        </Card>
+</div>   
   
     )
 }
