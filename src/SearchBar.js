@@ -39,8 +39,8 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
 //Material-UI:n Autocomplete 
       return (
            <div style={{ justifyContent:'center',}}>
-         { /*   <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div> */} {/* debuggaukseen */}
-         { /*  <div>{`inputValue: '${inputValue}'`}</div> */}
+         <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  {/* debuggaukseen */}
+         <div>{`inputValue: '${inputValue}'`}</div> 
         <Autocomplete
           value={title}
           onChange={(event, newValue) => {
@@ -50,7 +50,7 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
           onInputChange={(event, newInputValue) => {
             setInputValue(newInputValue);
           }}
-        freeSolo
+          freeSolo
         id=""
         disableClearable
         options={title}
@@ -64,7 +64,7 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
           />
         )}
       />
-      
+
   <Button variant="contained" component={ Link } 
                   to= {`/search/${value}`}>Hae</Button>             
            </div>      

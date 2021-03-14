@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useParams } from 'react-router';
 import axios from 'axios';
-
+import Grid from '@material-ui/core/Grid';
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
@@ -47,7 +47,7 @@ function SearchResult (props) {
     const [title, setTitle] = useState({"name":null});
     const [desc, setDesc] = useState(['']);
     let { value } = useParams();
-    const [resultCount, setResultCount] = useState('');
+    
  
 
     useEffect( () => { const query = {
@@ -68,34 +68,36 @@ function SearchResult (props) {
           titles.push(res.data.hits.hits[i]._source.title  )
           desc.push(res.data.hits.hits[i]._source.language  )
           setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
-          
+         
           }
-          setResultCount(res);
+         
           console.log(titles.length);
-          console.log(desc);
+          console.log(titles);
           
       });  }, []);
 
       if (titles[1] !== undefined) {
-        
+        return (
+         
+      titles.map(title => {
 return(
-    
-<div style={{ display:'flex', justifyContent:'center' }}>    
+  
+<div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
+
         <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
         <CardContent>
-        <Typography className={classes.font2}>{titles[1]}</Typography>
+        <Typography className={classes.font2}>{title}</Typography>
 <br></br>
 <br></br>
-<br></br>
-<br></br>
-<br></br>
-
-        <Typography className={classes.font}> {desc[1]} </Typography>
         </CardContent>
         </Card>
-</div>   
-    );
-  }     
+</div> 
+    
+         )
+        }
+      )
+    )
+  }    
 
 else  {
     return(
