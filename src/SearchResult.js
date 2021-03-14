@@ -64,20 +64,20 @@ function SearchResult (props) {
           source_content_type: 'application/json'
         }
       }).then((res) => {
-        for (var i = 0; i < res.data.hits.hits.length; i++) { //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
+        for (var i = 0; i < res.data.hits.hits.length; i++) {
           titles.push(res.data.hits.hits[i]._source.title  )
           desc.push(res.data.hits.hits[i]._source.language  )
           setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
           
           }
           setResultCount(res);
-          console.log(titles[1]);
+          console.log(titles.length);
           console.log(desc);
           
       });  }, []);
 
       if (titles[1] !== undefined) {
-        for (var i = 0; i < titles.length; i++) {
+        
 return(
     
 <div style={{ display:'flex', justifyContent:'center' }}>    
@@ -85,29 +85,29 @@ return(
         <CardContent>
         <Typography className={classes.font2}>{titles[1]}</Typography>
 <br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 
         <Typography className={classes.font}> {desc[1]} </Typography>
         </CardContent>
         </Card>
 </div>   
-);
-}      
+    );
+  }     
 
-} 
-else if (titles[1] === undefined) {
+else  {
     return(
       <div style={{ display:'flex', justifyContent:'center' }}>    
         <Card className={classes.ohjelma1} >
         <CardContent>
-        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>
-<br></br>
-
-        
+        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>   
         </CardContent>
         </Card>
-</div>   
+      </div>   
   
     )
-}
+  }
 }
 export default SearchResult

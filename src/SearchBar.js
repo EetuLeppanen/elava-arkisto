@@ -6,6 +6,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField'; 
 import Button from '@material-ui/core/Button'; 
 import { Link } from 'react-router-dom';
+
 function SearchBar () {
   const [title, setTitle] = useState(['']);
   const [searchterm, setSearchterm] = useState('');
@@ -17,13 +18,13 @@ function SearchBar () {
 const editSearchterm = (e) => setSearchterm(e.target.value);
 
 
-//Hakee tiedon elasticsearchista
+//Hakee kaikki tiedot elasticsearchista
 useEffect( () => { const query = {
   query: {
-    match_all: {}
-     
+    match_all: {} 
   }
 };
+
 axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasticsearchista
   params: {
     source: JSON.stringify(query),
@@ -31,18 +32,13 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
   }
 }).then((res) => {
   for (var i = 0; i < res.data.hits.hits.length; i++) { //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
-    title.push(res.data.hits.hits[i]._source.title  )
- 
-    }
-    console.log(title);
+    title.push(res.data.hits.hits[i]._source.title  )}
     title.shift();
-    console.log(value)
 });  }, [])
  
-
 //Material-UI:n Autocomplete 
       return (
-           <div >
+           <div style={{ justifyContent:'center',}}>
          { /*   <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div> */} {/* debuggaukseen */}
          { /*  <div>{`inputValue: '${inputValue}'`}</div> */}
         <Autocomplete
@@ -68,6 +64,7 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
           />
         )}
       />
+      
   <Button variant="contained" component={ Link } 
                   to= {`/search/${value}`}>Hae</Button>             
            </div>      

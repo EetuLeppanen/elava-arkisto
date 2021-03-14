@@ -44,9 +44,6 @@ function MenuMUI () {
           <ListItemIcon><SearchIcon /></ListItemIcon>
           <ListItemText primary='Hae' />
         </MenuItem>
-        
-        
-        
       </Menu>
     </MenuList>
   </div>

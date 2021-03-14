@@ -9,7 +9,6 @@ import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import Toolbar from '@material-ui/core/Toolbar';
 
-
 //Sivun laajuinen default-teema
 const theme = createMuiTheme({
     palette: {
@@ -40,8 +39,7 @@ const theme = createMuiTheme({
             ['Helvetica'], 
             fontSize: 24
         },
-    
-        
+          
     overrides: {
         MuiCssBaseline: {
             "@global": {
@@ -57,23 +55,17 @@ const theme = createMuiTheme({
     });
 
     function ProjektiApp () {
-
         return ( 
-
-
             <BrowserRouter>
             <MuiThemeProvider theme={ theme }>
-            <div>
-        
+            <div>   
             <CssBaseline/>
             <MenuMUI/>
             <Switch>
             <Route path='/search/:value' component= { SearchResult } />
             <Route exact path='/etusivu' component={ Etusivu} />  
-            <Route path='/' component= {SearchBar } />
-           
+            <Route path='/' component= {SearchBar } />        
             </Switch>
-
             </div>
             </MuiThemeProvider>
             </BrowserRouter>
