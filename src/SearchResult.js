@@ -5,26 +5,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
+
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
     backgroundColor: '#faf5f5', color: 'black',
     font: 'poppins',
-    borderRadius: 5,
-    border: "10px",
-    borderColor: "F000000",
+    borderRadius: 2,
     width: "40%",
+    
    
     },
     ohjelma1: {
       backgroundColor: '#faf5f5', color: 'black',
       font: 'poppins',
       borderRadius: 5,
-      border: "10px",
-      borderColor: "F000000",
-     
-     
+      
       },
 //Korttien teema
     font: {
@@ -48,14 +44,11 @@ function SearchResult (props) {
     const [desc, setDesc] = useState(['']);
     let { value } = useParams();
     
- 
-
     useEffect( () => { const query = {
         query: {
           match: {
           "title": <text>"</text> + value + <text>"</text> 
-          }
-           
+          }   
         }
       };
       axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasticsearchista
@@ -68,38 +61,33 @@ function SearchResult (props) {
           titles.push(res.data.hits.hits[i]._source.title  )
           desc.push(res.data.hits.hits[i]._source.language  )
           setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
-         
-          }
-         
-          console.log(titles.length);
-          console.log(titles);
+          }  
+          titles.shift();      
+          console.log(titles)
           
       });  }, []);
 
-      if (titles[1] !== undefined) {
+      if (titles[0] != undefined) {
         return (
          
-      titles.map(title => {
+      titles.map(titles => {
 return(
   
 <div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
-
         <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
         <CardContent>
-        <Typography className={classes.font2}>{title}</Typography>
+        <Typography className={classes.font2}>{titles}</Typography>
 <br></br>
 <br></br>
         </CardContent>
         </Card>
 </div> 
-    
          )
         }
       )
     )
   }    
-
-else  {
+else {
     return(
       <div style={{ display:'flex', justifyContent:'center' }}>    
         <Card className={classes.ohjelma1} >

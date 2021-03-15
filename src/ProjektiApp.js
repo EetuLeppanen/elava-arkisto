@@ -2,12 +2,12 @@ import React from 'react';
 import {MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter, Route, Switch,} from 'react-router-dom';
 import MenuMUI from './navigationMUI/MenuMUI';
 import Etusivu from './Etusivu';
-import SearchBar from './SearchBar';
+import SearchTitles from './SearchTitles';
 import SearchResult from './SearchResult';
-import Toolbar from '@material-ui/core/Toolbar';
+
 
 //Sivun laajuinen default-teema
 const theme = createMuiTheme({
@@ -53,7 +53,6 @@ const theme = createMuiTheme({
         }
          },
     });
-
     function ProjektiApp () {
         return ( 
             <BrowserRouter>
@@ -64,7 +63,7 @@ const theme = createMuiTheme({
             <Switch>
             <Route path='/search/:value' component= { SearchResult } />
             <Route exact path='/etusivu' component={ Etusivu} />  
-            <Route path='/' component= {SearchBar } />        
+            <Route path='/' component= {SearchTitles } />        
             </Switch>
             </div>
             </MuiThemeProvider>
