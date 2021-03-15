@@ -4,7 +4,7 @@ import { blue, green } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import MenuMUI from './navigationMUI/MenuMUI';
-import Etusivu from './Etusivu';
+import Etusivu from './EtuSivu';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import Toolbar from '@material-ui/core/Toolbar';
