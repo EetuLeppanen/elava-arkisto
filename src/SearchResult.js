@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useParams } from 'react-router';
 import axios from 'axios';
-
+import Grid from '@material-ui/core/Grid';
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
@@ -61,13 +61,13 @@ function SearchResult (props) {
           titles.push(res.data.hits.hits[i]._source.title  )
           desc.push(res.data.hits.hits[i]._source.language  )
           setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
-          }  
-          titles.shift();      
-          console.log(titles)
-          
+          }        
+          console.log(titles);
+          console.log(titles[1]);
+          titles.shift();
       });  }, []);
 
-      if (titles[0] != undefined) {
+      if (titles[1] !== undefined) {
         return (
          
       titles.map(titles => {
@@ -87,7 +87,7 @@ return(
       )
     )
   }    
-else {
+else  {
     return(
       <div style={{ display:'flex', justifyContent:'center' }}>    
         <Card className={classes.ohjelma1} >
