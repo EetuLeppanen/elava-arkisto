@@ -3,7 +3,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField'; 
 import Button from '@material-ui/core/Button'; 
 import { Link } from 'react-router-dom';
-import MultilineTextFields from './MultilineTextFields';
+import RadioButtonsGroup from './RadioButtonsGroup';
 
 function SearchAutocomplete (props) {
     const [title, setTitle] = useState([]);
@@ -14,7 +14,8 @@ function SearchAutocomplete (props) {
 //Material-UI:n Autocomplete 
 return (
     <div style={{ justifyContent:'center',}}>
-      <MultilineTextFields></MultilineTextFields>    
+      <RadioButtonsGroup/>
+
  {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}
 <Autocomplete

@@ -29,6 +29,7 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
 });  }, [])
  
       return (
+      
          <SearchAutocomplete title = {title}/>)
 
 };
