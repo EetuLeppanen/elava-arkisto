@@ -11,6 +11,9 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import RadioIcon from '@material-ui/icons/Radio';
 import MovieIcon from '@material-ui/icons/Movie';
+import Zoom from 'react-reveal/Zoom';
+
+
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
@@ -107,9 +110,11 @@ Näyttelijöiden nimet: Heikki Nurminen, Ulla Taalasmaa
 <br></br>
 <DateRangeIcon/>
 Esittämispäivämäärä: 15.02.2020
+<Zoom>
 <br></br>
 <ScheduleIcon/>
 Ohjelman kesto: 23.24 minuuttia
+</Zoom>
 </CardContent>
 </Card>
 </div> 
