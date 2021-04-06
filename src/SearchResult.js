@@ -6,6 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import DateRangeIcon from '@material-ui/icons/DateRange';
+import RadioIcon from '@material-ui/icons/Radio';
+import MovieIcon from '@material-ui/icons/Movie';
 //Sivun teema
 const useStyles = makeStyles({
     ohjelma: {
@@ -67,21 +72,20 @@ function SearchResult (props) {
           titles.shift();
       });  }, []);
 
-      if (titles[1] !== undefined) {
+      if (titles[1] === undefined) {
         return (
          
       titles.map(titles => {
 return(
-  
-<div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
-        <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
+  <div style={{ display:'flex', justifyContent:'center' }}>    
+        <Card className={classes.ohjelma1} >
         <CardContent>
-        <Typography className={classes.font2}>{titles}</Typography>
-<br></br>
-<br></br>
+        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>   
         </CardContent>
         </Card>
-</div> 
+      </div>   
+
+
          )
         }
       )
@@ -89,13 +93,26 @@ return(
   }    
 else  {
     return(
-      <div style={{ display:'flex', justifyContent:'center' }}>    
-        <Card className={classes.ohjelma1} >
-        <CardContent>
-        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>   
-        </CardContent>
-        </Card>
-      </div>   
+      
+<div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
+<Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
+
+<CardContent>
+<Typography className={classes.font2}><MovieIcon/>Ohjelman nimi: {titles} </Typography>
+
+
+<br></br>
+<SupervisedUserCircleIcon/>
+Näyttelijöiden nimet: Heikki Nurminen, Ulla Taalasmaa
+<br></br>
+<DateRangeIcon/>
+Esittämispäivämäärä: 15.02.2020
+<br></br>
+<ScheduleIcon/>
+Ohjelman kesto: 23.24 minuuttia
+</CardContent>
+</Card>
+</div> 
   
     )
   }
