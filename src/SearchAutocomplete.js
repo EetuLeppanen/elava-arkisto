@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'; 
 import { Link } from 'react-router-dom';
 import RadioButtonsGroup from './RadioButtonsGroup';
+import ControlledOpenSelect from './ControlledOpenSelect';
 
 function SearchAutocomplete (props) {
     const [title, setTitle] = useState([]);
@@ -15,6 +16,7 @@ function SearchAutocomplete (props) {
 return (
     <div style={{ justifyContent:'center',}}>
       <RadioButtonsGroup/>
+      <ControlledOpenSelect/>
 
  {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}

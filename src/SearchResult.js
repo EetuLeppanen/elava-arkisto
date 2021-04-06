@@ -11,7 +11,8 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import RadioIcon from '@material-ui/icons/Radio';
 import MovieIcon from '@material-ui/icons/Movie';
-import Zoom from 'react-reveal/Zoom';
+import { Reveal, Fade } from "react-awesome-reveal";
+
 
 
 //Sivun teema
@@ -101,20 +102,22 @@ else  {
 <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
 
 <CardContent>
-<Typography className={classes.font2}><MovieIcon/>Ohjelman nimi: {titles} </Typography>
+<Fade>
+<Typography className={classes.font2}><MovieIcon/>
+<p>Ohjelman nimi: {titles} </p></Typography>
 
 
-<br></br>
+
 <SupervisedUserCircleIcon/>
-Näyttelijöiden nimet: Heikki Nurminen, Ulla Taalasmaa
-<br></br>
+<p>Näyttelijöiden nimet: Heikki Nurminen, Ulla Taalasmaa</p>
+
 <DateRangeIcon/>
-Esittämispäivämäärä: 15.02.2020
-<Zoom>
-<br></br>
+<p>Esittämispäivämäärä: 15.02.2020</p>
+
+
 <ScheduleIcon/>
-Ohjelman kesto: 23.24 minuuttia
-</Zoom>
+<p>Ohjelman kesto: 23.24 minuuttia</p>
+</Fade>
 </CardContent>
 </Card>
 </div> 
