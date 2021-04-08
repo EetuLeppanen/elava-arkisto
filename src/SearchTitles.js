@@ -23,7 +23,7 @@ axios.get('http://46.101.128.190:9200/testataan/_doc/_search', { // hakee elasti
   }
 }).then((res) => {
   for (var i = 0; i < res.data.hits.hits.length; i++) { //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
-    title.push(res.data.hits.hits[i]._source.title  )}
+    title.push(res.data.hits.hits[i]._source.MAINTITLE  )}
     title.shift();
     console.log(title);
 });  }, [])

@@ -67,11 +67,11 @@ function SearchResult (props) {
         }
       }).then((res) => {
         for (var i = 0; i < res.data.hits.hits.length; i++) {
-          titles.push(res.data.hits.hits[i]._source.title  )
-          desc.push(res.data.hits.hits[i]._source.language  )
+          titles.push(res.data.hits.hits[i]._source.MAINTITLE  )
+          desc.push(res.data.hits.hits[i]._source.DESC  )
           setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
           }        
-          console.log(titles);
+          console.log(desc);
           console.log(titles[1]);
           titles.shift();
       });  }, []);
@@ -81,22 +81,7 @@ function SearchResult (props) {
          
       titles.map(titles => {
 return(
-  <div style={{ display:'flex', justifyContent:'center' }}>    
-        <Card className={classes.ohjelma1} >
-        <CardContent>
-        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>   
-        </CardContent>
-        </Card>
-      </div>   
 
-
-         )
-        }
-      )
-    )
-  }    
-else  {
-    return(
       
 <div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
 <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
@@ -124,5 +109,5 @@ else  {
   
     )
   }
-}
+      ))}}
 export default SearchResult
