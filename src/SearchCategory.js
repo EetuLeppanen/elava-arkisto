@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 function SearchCategory () {
   
 
-
+//placeholder
 
 
 

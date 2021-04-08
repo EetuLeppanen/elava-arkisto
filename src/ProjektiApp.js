@@ -13,11 +13,11 @@ import SearchResult from './SearchResult';
 const theme = createMuiTheme({
     palette: {
         primary:{
-            main: '#03c2fc', 
+            main: '#C0C0C0', 
             contrastText: '#000000'},
 
         secondary: {
-            main: '#1F19C7', 
+            main: '#808080', 
             contrastText: '#000000'},
 
         text: {
@@ -47,7 +47,7 @@ const theme = createMuiTheme({
                     paddingLeft: "50px",
                     paddingRight: "50px",
                     backgroundImage:
-                    "url(https://www.eclatbysylvi.com/wp-content/uploads/2016/05/Light-Blue-blur-background.jpg)"
+                    "url(https://www.xmple.com/wallpaper/one-colour-single-solid-color-gray-plain-2560x1440-c-9da0a0-f-24.svg)"
                 }
             }
         }

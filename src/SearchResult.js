@@ -49,6 +49,8 @@ const useStyles = makeStyles({
 function SearchResult (props) {
     const classes = useStyles();
     const [titles, setTitles] = useState(['']);
+    const [actors, setActors] = useState(['']);
+    const [year, setYear] = useState(['']);
     const [title, setTitle] = useState({"name":null});
     const [desc, setDesc] = useState(['']);
     let { value } = useParams();
@@ -56,7 +58,7 @@ function SearchResult (props) {
     useEffect( () => { const query = {
         query: {
           match: {
-          "title": <text>"</text> + value + <text>"</text> 
+          "MAINTITLE": <text>"</text> + value + <text>"</text> 
           }   
         }
       };
@@ -69,11 +71,16 @@ function SearchResult (props) {
         for (var i = 0; i < res.data.hits.hits.length; i++) {
           titles.push(res.data.hits.hits[i]._source.MAINTITLE  )
           desc.push(res.data.hits.hits[i]._source.DESC  )
-          setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.title});
+          actors.push(res.data.hits.hits[i]._source.ACTORS  )
+          year.push(res.data.hits.hits[i]._source.YEAR  )
+          setTitle({ ...title, ["title"]: res.data.hits.hits[i]._source.MAINTITLE});
           }        
-          console.log(desc);
+          
           console.log(titles[1]);
           titles.shift();
+          actors.shift();
+          year.shift();
+          console.log(actors);
       });  }, []);
 
       if (titles[1] === undefined) {
@@ -81,27 +88,40 @@ function SearchResult (props) {
          
       titles.map(titles => {
 return(
+  <div style={{ display:'flex', justifyContent:'center' }}>    
+        <Card className={classes.ohjelma1} >
+        <CardContent>
+        <Typography className={classes.font}>Valitettavasti hakukriteereilläsi ei löytynyt mitään.</Typography>   
+        </CardContent>
+        </Card>
+      </div>   
 
+
+         )
+        }
+      )
+    )
+  }    
+else  {
+    return(
       
 <div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
 <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
 
 <CardContent>
 <Fade>
-<Typography className={classes.font2}><MovieIcon/>
-<p>Ohjelman nimi: {titles} </p></Typography>
+<Typography className={classes.font2}>
+<p> {titles} </p></Typography>
 
 
 
 <SupervisedUserCircleIcon/>
-<p>Näyttelijöiden nimet: Heikki Nurminen, Ulla Taalasmaa</p>
+<p>{actors}</p>
 
 <DateRangeIcon/>
-<p>Esittämispäivämäärä: 15.02.2020</p>
+<p>Esittämisvuosi: {year}</p>
 
 
-<ScheduleIcon/>
-<p>Ohjelman kesto: 23.24 minuuttia</p>
 </Fade>
 </CardContent>
 </Card>
@@ -109,5 +129,5 @@ return(
   
     )
   }
-      ))}}
+}
 export default SearchResult
