@@ -12,6 +12,8 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import RadioIcon from '@material-ui/icons/Radio';
 import MovieIcon from '@material-ui/icons/Movie';
 import { Reveal, Fade } from "react-awesome-reveal";
+import RadioCard from './RadioCard';
+import TvCard from './TvCard';
 
 
 
@@ -48,11 +50,12 @@ const useStyles = makeStyles({
 
 function SearchResult (props) {
     const classes = useStyles();
-    const [titles, setTitles] = useState(['']);
+    const [programs, setPrograms] = useState([]);
+/*     const [titles, setTitles] = useState(['']);
     const [actors, setActors] = useState(['']);
     const [year, setYear] = useState(['']);
     const [title, setTitle] = useState({"name":null});
-    const [desc, setDesc] = useState(['']);
+    const [desc, setDesc] = useState(['']); */
     let { value } = useParams();
     
     useEffect( () => { const query = {
@@ -68,7 +71,13 @@ function SearchResult (props) {
           source_content_type: 'application/json'
         }
       }).then((res) => {
-        for (var i = 0; i < res.data.hits.hits.length; i++) {
+        
+        console.log(res.data.hits.hits)
+        setPrograms(res.data.hits.hits)
+       
+        
+
+       /*  for (var i = 0; i < res.data.hits.hits.length; i++) {
           titles.push(res.data.hits.hits[i]._source.MAINTITLE  )
           desc.push(res.data.hits.hits[i]._source.DESC  )
           actors.push(res.data.hits.hits[i]._source.ACTORS  )
@@ -80,10 +89,27 @@ function SearchResult (props) {
           titles.shift();
           actors.shift();
           year.shift();
-          console.log(actors);
+          console.log(actors); */
+
+      
       });  }, []);
 
-      if (titles[1] === undefined) {
+      if (programs) {
+        return (
+          programs.map((program, index) => {
+            if (program._source.TYPE === "radio")
+            return (
+              <RadioCard data = {program}/>
+            )
+            if (program._source.TYPE === "tv")
+            return (
+              <TvCard data = {program}/>
+            )
+          }
+        )
+        )
+      }
+/*       if (titles[1] === undefined) {
         return (
          
       titles.map(titles => {
@@ -101,31 +127,11 @@ return(
         }
       )
     )
-  }    
+  }   */  
 else  {
     return(
       
-<div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
-<Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
-
-<CardContent>
-<Fade>
-<Typography className={classes.font2}>
-<p> {titles} </p></Typography>
-
-
-
-<SupervisedUserCircleIcon/>
-<p>{actors}</p>
-
-<DateRangeIcon/>
-<p>Esittämisvuosi: {year}</p>
-
-
-</Fade>
-</CardContent>
-</Card>
-</div> 
+<div>ei löydy</div>
   
     )
   }
