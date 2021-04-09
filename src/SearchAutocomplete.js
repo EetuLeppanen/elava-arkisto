@@ -15,8 +15,7 @@ function SearchAutocomplete (props) {
 //Material-UI:n Autocomplete 
 return (
     <div style={{ justifyContent:'center',}}>
-      <RadioButtonsGroup/>
-      <ControlledOpenSelect/>
+      
 
  {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}

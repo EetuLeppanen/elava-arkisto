@@ -19,9 +19,12 @@ function TvCard (props){
     const useStyles = makeStyles({
         ohjelma: {
         backgroundColor: '#faf5f5', color: 'black',
+        borderColor: '#000000',
         font: 'poppins',
-        borderRadius: 2,
-        width: "40%",
+        padding: 5,
+        margin: 30,
+        borderRadius: 35,
+        width: "60%",
         
        
         },
@@ -56,13 +59,22 @@ function TvCard (props){
 <Typography className={classes.font2}>
 <p> {props.data._source.MAINTITLE} </p></Typography>
 
-
-
 <SupervisedUserCircleIcon/>
 <p>{props.data._source.ACTORS}</p>
 
+
+
+<MovieIcon/>
+<p>{props.data._source.GENRE}</p>
+
+
 <DateRangeIcon/>
 <p>{props.data._source.YEAR}</p>
+
+
+
+
+
 
 
 </Fade>
