@@ -12,6 +12,7 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import RadioIcon from '@material-ui/icons/Radio';
 import MovieIcon from '@material-ui/icons/Movie';
 import { Reveal, Fade } from "react-awesome-reveal";
+import InfoIcon from '@material-ui/icons/Info';
 
 
 
@@ -19,9 +20,12 @@ function RadioCard (props){
     const useStyles = makeStyles({
         ohjelma: {
         backgroundColor: '#faf5f5', color: 'black',
+        borderColor: '#000000',
         font: 'poppins',
-        borderRadius: 2,
-        width: "40%",
+        padding: 5,
+        margin: 30,
+        borderRadius: 35,
+        width: "60%",
         
        
         },
@@ -48,7 +52,8 @@ function RadioCard (props){
     const classes = useStyles();
    
     return(
-<div style={{ display:'flex', justifyContent:'center', flexGrow:0.5, }}>   
+        
+<div style={{ display:'flex', justifyContent:'center', flexGrow:0.5,}}>   
 <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
 
 <CardContent>
@@ -57,9 +62,12 @@ function RadioCard (props){
 <p> {props.data._source.MAINTITLE} </p></Typography>
 
 
+<div style = {{ marginBottom: 5, marginTop: 1}}>
+<InfoIcon/>
+    
 
-<SupervisedUserCircleIcon/>
 <p>{props.data._source.DESC}</p>
+</div>
 
 <p></p>
 

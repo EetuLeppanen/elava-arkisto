@@ -24,7 +24,7 @@ function MenuMUI () {
     <AppBar position='static'>
       <Toolbar>
          <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>
-         <Typography variant='h5' style={ {flexGrow: 1, textAlign: 'center'} }>Hakusovellus</Typography>
+         <Typography variant='h5' style={ {width: 100, flexGrow: 1, textAlign: 'center'} }>Hakusovellus</Typography>
       </Toolbar>
     </AppBar>
 
