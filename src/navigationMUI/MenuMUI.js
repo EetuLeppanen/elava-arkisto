@@ -12,6 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
+import innovateam11 from './innovateam11.png';
 
 function MenuMUI () {
   const [anchorMenu, setMenuOpen] = useState(null);
@@ -25,6 +26,7 @@ function MenuMUI () {
       <Toolbar>
          <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>
          <Typography variant='h5' style={ {width: 100, flexGrow: 1, textAlign: 'center'} }>Elävän arkiston hakusovellus</Typography>
+         <img src={innovateam11}/>
       </Toolbar>
     </AppBar>
 

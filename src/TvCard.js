@@ -16,6 +16,7 @@ import RadioCard from './RadioCard';
 import Collapse from '@material-ui/core/Collapse';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import TvIcon from '@material-ui/icons/Tv';
 
 
 function TvCard (props){
@@ -66,6 +67,8 @@ function TvCard (props){
 <CardContent>
 
 <Typography className={classes.font2}>
+<TvIcon/>
+
 <p> <b>{props.data._source.MAINTITLE}</b> </p></Typography>
 
 
