@@ -3,15 +3,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { useParams } from 'react-router';
-import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-import ScheduleIcon from '@material-ui/icons/Schedule';
-import DateRangeIcon from '@material-ui/icons/DateRange';
 import RadioIcon from '@material-ui/icons/Radio';
-import MovieIcon from '@material-ui/icons/Movie';
-import { Reveal, Fade } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import InfoIcon from '@material-ui/icons/Info';
 
 

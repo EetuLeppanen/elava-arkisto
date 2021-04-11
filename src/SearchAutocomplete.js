@@ -3,8 +3,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField'; 
 import Button from '@material-ui/core/Button'; 
 import { Link } from 'react-router-dom';
-import RadioButtonsGroup from './components/RadioButtonsGroup';
-import ControlledOpenSelect from './components/ControlledOpenSelect';
+//import RadioButtonsGroup from './components/RadioButtonsGroup';
+//import ControlledOpenSelect from './components/ControlledOpenSelect';
 import SearchIcon from '@material-ui/icons/Search';
 
 function SearchAutocomplete (props) {
