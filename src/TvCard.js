@@ -64,26 +64,31 @@ function TvCard (props){
 <Card className={classes.ohjelma} style={ {minWidth: 1, minHeight: 1 } }>
 
 <CardContent>
-<Fade>
+
 <Typography className={classes.font2}>
 <p> <b>{props.data._source.MAINTITLE}</b> </p></Typography>
 
 
 
-<p><SupervisedUserCircleIcon/>Näyttelijät</p>
+<p><SupervisedUserCircleIcon/> Näyttelijät</p>
 <p>{props.data._source.ACTORS}</p>
 <br></br>
 
 
 
 <Collapse in={checked}>
-<p><MovieIcon/>Genre</p>
+<Fade>
+<p><MovieIcon/> Genre</p>
 <p>{props.data._source.GENRE}</p>
 <br></br>
+</Fade>
 </Collapse>
+
 <Collapse in={checked}>
-<p><DateRangeIcon/>Julkaisuvuosi</p>
+<Fade>
+<p><DateRangeIcon/> Julkaisuvuosi</p>
 <p> {props.data._source.YEAR}</p>
+</Fade>
 </Collapse>
 
 <FormControlLabel
@@ -96,7 +101,7 @@ function TvCard (props){
 
 
 
-</Fade>
+
 </CardContent>
 </Card>
 </div> 

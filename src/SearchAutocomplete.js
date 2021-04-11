@@ -42,7 +42,7 @@ return (
      InputProps={{ ...params.InputProps, type: 'search' }}/>
  )}
 />
-<Button style={{ backgroundColor: "#50A1A1" }} variant="contained" component={ Link } 
+<Button  style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={ Link } 
            to= {`/search/${value}`}><SearchIcon/>Hae</Button>        
             
     </div>      

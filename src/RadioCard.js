@@ -22,7 +22,7 @@ function RadioCard (props){
         backgroundColor: '#faf5f5', color: 'black',
         borderColor: '#000000',
         font: 'poppins',
-        padding: 5,
+        padding: 3,
         margin: 30,
         borderRadius: 35,
         width: "60%",
@@ -59,11 +59,12 @@ function RadioCard (props){
 <CardContent>
 <Fade>
 <Typography className={classes.font2}>
+    <RadioIcon/>
 <p> <b>{props.data._source.MAINTITLE}</b> </p></Typography>
 
 
 <div style = {{ marginBottom: 5, marginTop: 1}}>
-<InfoIcon/>
+<p><InfoIcon/>Tietoa</p>
     
 
 <p>{props.data._source.DESC}</p>

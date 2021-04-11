@@ -13,7 +13,7 @@ import SearchResult from './SearchResult';
 const theme = createMuiTheme({
     palette: {
         primary:{
-            main: '#FFFFFF90', 
+            main: '#262a2e', 
             contrastText: '#FFFFFF'},
 
         secondary: {
@@ -22,12 +22,12 @@ const theme = createMuiTheme({
 
         text: {
             primary: '#000000', 
-            secondary: blue[900], 
+            secondary: '#000000', 
             contrastText: '#FFFFFF' },
 
         action: {
             active: blue[300], 
-            hover: '#1a233e', 
+            hover: '#262a2e85', 
             selected: green[300] },
 
         background: { 
