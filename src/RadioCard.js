@@ -59,7 +59,7 @@ function RadioCard (props){
 <CardContent>
 <Fade>
 <Typography className={classes.font2}>
-<p> {props.data._source.MAINTITLE} </p></Typography>
+<p> <b>{props.data._source.MAINTITLE}</b> </p></Typography>
 
 
 <div style = {{ marginBottom: 5, marginTop: 1}}>

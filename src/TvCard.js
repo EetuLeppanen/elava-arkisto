@@ -13,6 +13,9 @@ import RadioIcon from '@material-ui/icons/Radio';
 import MovieIcon from '@material-ui/icons/Movie';
 import { Reveal, Fade } from "react-awesome-reveal";
 import RadioCard from './RadioCard';
+import Collapse from '@material-ui/core/Collapse';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 
 function TvCard (props){
@@ -49,6 +52,12 @@ function TvCard (props){
              },
     })
     const classes = useStyles();
+
+    const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
     
     return(
 <div style={{ display:'flex', justifyContent:'center', flexGrow:1, }}>   
@@ -57,20 +66,30 @@ function TvCard (props){
 <CardContent>
 <Fade>
 <Typography className={classes.font2}>
-<p> {props.data._source.MAINTITLE} </p></Typography>
+<p> <b>{props.data._source.MAINTITLE}</b> </p></Typography>
 
-<SupervisedUserCircleIcon/>
+
+
+<p><SupervisedUserCircleIcon/>Näyttelijät</p>
 <p>{props.data._source.ACTORS}</p>
+<br></br>
 
 
 
-<MovieIcon/>
+<Collapse in={checked}>
+<p><MovieIcon/>Genre</p>
 <p>{props.data._source.GENRE}</p>
+<br></br>
+</Collapse>
+<Collapse in={checked}>
+<p><DateRangeIcon/>Julkaisuvuosi</p>
+<p> {props.data._source.YEAR}</p>
+</Collapse>
 
-
-<DateRangeIcon/>
-<p>{props.data._source.YEAR}</p>
-
+<FormControlLabel
+        control={<Switch checked={checked} onChange={handleChange} />}
+        label="Näytä lisää"
+      />
 
 
 
