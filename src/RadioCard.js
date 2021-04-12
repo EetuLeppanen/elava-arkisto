@@ -16,7 +16,7 @@ function RadioCard (props){
         borderColor: '#000000',
         font: 'poppins',
         padding: 3,
-        margin: 30,
+        margin: 16,
         borderRadius: 35,
         width: "60%",
         
