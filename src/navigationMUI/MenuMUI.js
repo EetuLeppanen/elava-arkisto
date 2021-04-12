@@ -25,7 +25,6 @@ function MenuMUI () {
       <Toolbar>
          <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>
          <Typography variant='h5' style={ {width: 100, flexGrow: 1, textAlign: 'center'} }>Elävän arkiston hakusovellus</Typography>
-         <img src={innovateam11} alt="Logo"/>
       </Toolbar>
     </AppBar>
 

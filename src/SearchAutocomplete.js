@@ -16,8 +16,8 @@ function SearchAutocomplete (props) {
 //Material-UI:n Autocomplete 
 return (
     <div style={{ justifyContent:'center',}}>
-      
-
+      <br></br>
+      <br></br>
  {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}
 <Autocomplete
