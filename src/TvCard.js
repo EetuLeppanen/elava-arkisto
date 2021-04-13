@@ -68,6 +68,7 @@ function TvCard(props) {
                 <b>{props.data._source.MAINTITLE}</b>{" "}
               </p>
             </Typography>
+            
             <p>
               <SupervisedUserCircleIcon />
               Näyttelijät
@@ -76,19 +77,24 @@ function TvCard(props) {
             <br></br>
 
             <Collapse in={checked}>
+              <Fade>
               <p>
                 <MovieIcon />
                 Genre
               </p>
               <p>{props.data._source.GENRE}</p>
               <br></br>
+              </Fade>
             </Collapse>
+
             <Collapse in={checked}>
+            <Fade>
               <p>
                 <DateRangeIcon />
                 Julkaisuvuosi
               </p>
               <p> {props.data._source.YEAR}</p>
+              </Fade>
             </Collapse>
 
             <FormControlLabel
