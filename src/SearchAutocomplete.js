@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 //import RadioButtonsGroup from './components/RadioButtonsGroup';
 //import ControlledOpenSelect from './components/ControlledOpenSelect';
 import SearchIcon from '@material-ui/icons/Search';
+import ReactDOM from 'react-dom';
 
 function SearchAutocomplete (props) {
     const [title, setTitle] = useState([]);
@@ -13,9 +14,24 @@ function SearchAutocomplete (props) {
     const [value, setValue] = useState(options[0]);
     const [inputValue, setInputValue] = useState('');
 
+    const Mailto = ({ email, subject = '', body = '', children }) => {
+      let params = subject || body ? '?' : '';
+      if (subject) params += `subject=${encodeURIComponent(subject)}`;
+      if (body) params += `${subject ? '&' : ''}body=${encodeURIComponent(body)}`;
+    
+      return <a href={`mailto:${email}${params}`}>{children}</a>;
+    };
+
+    
+
 //Material-UI:n Autocomplete 
 return (
     <div style={{ justifyContent:'center',}}>
+
+
+  
+  
+
       <br></br>
       <br></br>
  {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
@@ -43,7 +59,18 @@ return (
  )}
 />
 <Button  style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={ Link } 
-           to= {`/search/${value}`}><SearchIcon/>Hae</Button>        
+           to= {`/search/${value}`}><SearchIcon/>Hae</Button>    
+           <br></br>   
+           <br></br>
+           <br></br>
+           <br></br>
+           <br></br>
+           <br></br>
+
+
+           <Mailto email="joonaksensahkoposti@hotmail.fi" subject="Ohjelmatoive" body="Haluaisin toivoa ojhjaksldf alma lka jsdlka jsdlkasd">
+    Pyydä ohjelmaa
+  </Mailto> 
             
     </div>      
 );}
