@@ -49,7 +49,7 @@ return (
    freeSolo
     id=""
      disableClearable
-    options={props.title}
+      options={props.data._source.MAINTITLE}
     renderInput={(params) => (
 <TextField
      {...params}
