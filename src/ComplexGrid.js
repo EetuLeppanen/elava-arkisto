@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid(props) {
   const classes = useStyles();
-  const titles = props.data._source.MAINTITLE;
-  const items = [];
 
+  const items = [];
+console.log(props.title._source.MAINTITLE)
 // for (const [index, value] of titles)
 
   return (
@@ -42,13 +42,13 @@ export default function ComplexGrid(props) {
           <GridListTile key={yle}>
             <img src={yle} alt="paskaa" />
             <GridListTileBar
-              title={titles}
+              title={props.title._source.MAINTITLE}
               classes={{
                 root: classes.titleBar,
                 title: classes.title,
               }}
               actionIcon={
-                <IconButton aria-label={`star ${titles}`}>
+                <IconButton aria-label={`star ${props.title._source.MAINTITLE}`}>
                   <StarBorderIcon className={classes.title} />
                 </IconButton>
               }

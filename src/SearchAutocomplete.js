@@ -30,9 +30,6 @@ return (
     <div style={{ justifyContent:'center',}}>
 
 
-  
-  
-
       <br></br>
       <br></br>
  {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
@@ -49,7 +46,7 @@ return (
    freeSolo
     id=""
      disableClearable
-      options={props.data._source.MAINTITLE}
+      options={props.title._source.MAINTITLE}
     renderInput={(params) => (
 <TextField
      {...params}

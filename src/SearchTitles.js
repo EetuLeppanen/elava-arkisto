@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import SearchAutocomplete from "./SearchAutocomplete";
-import ComplexGrid from "./ComplexGrid";
+
 function SearchTitles() {
   const [title, setTitle] = useState([]);
 
@@ -28,13 +28,14 @@ function SearchTitles() {
       .then((res) => {
         console.log(res.data.hits.hits);
         setTitle(res.data.hits.hits); //tulos asetetaan muuttujaan
+        console.log(title)
       });
   }, []);
 
   return (
     <div>
     <SearchAutocomplete title={title} />
-    <ComplexGrid title={title} />
+  
     </div>
   );
 }
