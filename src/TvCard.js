@@ -14,6 +14,7 @@ import RadioCard from "./RadioCard";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import WebIcon from '@material-ui/icons/Web';
 
 function TvCard(props) {
   const useStyles = makeStyles({
@@ -71,10 +72,20 @@ function TvCard(props) {
             
             <p>
               <SupervisedUserCircleIcon />
-              Näyttelijät
+              Kuvaus
             </p>
-            <p>{props.data._source.ACTORS}</p>
+            <p>{props.data._source.DESC}</p>
             <br></br>
+
+            <Collapse in={checked}>
+            <Fade>
+              <p>
+                <DateRangeIcon />
+                Näyttelijät
+              </p>
+              <p> {props.data._source.ACTORS}</p>
+              </Fade>
+            </Collapse>
 
             <Collapse in={checked}>
               <Fade>
@@ -96,6 +107,20 @@ function TvCard(props) {
               <p> {props.data._source.YEAR}</p>
               </Fade>
             </Collapse>
+            
+
+            <Collapse in={checked}>
+            <Fade>
+              <p>
+                <WebIcon />
+                Linkki
+                
+              </p>
+              <a href={"https://areena.yle.fi/" +props.data._source.YLE_ID}>Linkki Yle Areenaan </a>
+              </Fade>
+            </Collapse>
+
+            
 
             <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange}  />}

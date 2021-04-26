@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 //import ControlledOpenSelect from './components/ControlledOpenSelect';
 import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
+import ComplexGrid from './ComplexGrid';
 
 function SearchAutocomplete (props) {
     const [title, setTitle] = useState([]);
@@ -67,6 +68,10 @@ return (
            <br></br>
            <br></br>
 
+
+
+
+<ComplexGrid></ComplexGrid>
 
            <Mailto email="joonaksensahkoposti@hotmail.fi" subject="Ohjelmatoive" body="Haluaisin toivoa ojhjaksldf alma lka jsdlka jsdlkasd">
     Pyydä ohjelmaa
