@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import innovateam11 from './innovateam11.png';
 
+
 function MenuMUI () {
   const [anchorMenu, setMenuOpen] = useState(null);
 
@@ -39,10 +40,17 @@ function MenuMUI () {
         {/*<MenuItem onClick={ handleClose } component={ Link } to='/'> */}
         {  /* <ListItemIcon><HomeIcon /></ListItemIcon>
         <ListItemText primary='Etusivu' /> */}
+        
+        
        
         <MenuItem onClick={ handleClose } component={ Link } to='/hakukone'>
           <ListItemIcon><SearchIcon /></ListItemIcon>
           <ListItemText primary='Hae' />
+        </MenuItem>
+
+        <MenuItem onClick={ handleClose } component={ Link } to='/pyyntosivu'>
+          <ListItemIcon><SearchIcon/></ListItemIcon>
+          <ListItemText primary='Pyydä ohjelmaa' />
         </MenuItem>
       </Menu>
     </MenuList>

@@ -15,13 +15,7 @@ function SearchAutocomplete (props) {
     const [value, setValue] = useState(options[0]);
     const [inputValue, setInputValue] = useState('');
 
-    const Mailto = ({ email, subject = '', body = '', children }) => {
-      let params = subject || body ? '?' : '';
-      if (subject) params += `subject=${encodeURIComponent(subject)}`;
-      if (body) params += `${subject ? '&' : ''}body=${encodeURIComponent(body)}`;
     
-      return <a href={`mailto:${email}${params}`}>{children}</a>;
-    };
 
     
 
@@ -46,7 +40,7 @@ return (
    freeSolo
     id=""
      disableClearable
-      options={props.title._source.MAINTITLE}
+      options={props.title}
     renderInput={(params) => (
 <TextField
      {...params}
@@ -68,11 +62,9 @@ return (
 
 
 
-<ComplexGrid></ComplexGrid>
 
-           <Mailto email="joonaksensahkoposti@hotmail.fi" subject="Ohjelmatoive" body="Haluaisin toivoa ojhjaksldf alma lka jsdlka jsdlkasd">
-    Pyydä ohjelmaa
-  </Mailto> 
+
+           
             
     </div>      
 );}

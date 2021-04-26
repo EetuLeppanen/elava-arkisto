@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import RadioCard from "./RadioCard";
 import TvCard from "./TvCard";
+import NoResultsCard from './NoResultsCard';
 
 //Sivun teema
 const useStyles = makeStyles({
@@ -67,13 +68,13 @@ function SearchResult(props) {
       });
   }, []);
 
-  if (programs) {
+  if (programs.length > 0) {
     return programs.map((program, index) => {
       if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma
       if (program._source.TYPE === "tv") return <TvCard data={program} />;       //jos tulos on tv-ohjelma
     });
   } else {
-    return <div>Hakemaasi ohjelmaa ei löytynyt.</div>;
+    return <NoResultsCard/>
   }
 }
 export default SearchResult;

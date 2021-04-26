@@ -19,25 +19,23 @@ function SearchTitles() {
 
     axios
       .get("http://46.101.128.190:9200/testataan/_doc/_search", {
-        // get pyyntö elasticsearchiin
+        // hakee elasticsearchista
         params: {
           source: JSON.stringify(query),
           source_content_type: "application/json",
         },
       })
       .then((res) => {
-        console.log(res.data.hits.hits);
-        setTitle(res.data.hits.hits); //tulos asetetaan muuttujaan
-        console.log(title)
+        for (var i = 0; i < res.data.hits.hits.length; i++) {
+          //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
+          title.push(res.data.hits.hits[i]._source.MAINTITLE);
+        }
+        
+        console.log(title);
       });
   }, []);
 
-  return (
-    <div>
-    <SearchAutocomplete title={title} />
-  
-    </div>
-  );
+  return <SearchAutocomplete title={title} />;
 }
 export default SearchTitles;
 
