@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
+import HelpIcon from '@material-ui/icons/Help';
 import innovateam11 from './innovateam11.png';
 
 
@@ -49,7 +50,7 @@ function MenuMUI () {
         </MenuItem>
 
         <MenuItem onClick={ handleClose } component={ Link } to='/pyyntosivu'>
-          <ListItemIcon><SearchIcon/></ListItemIcon>
+          <ListItemIcon><HelpIcon/></ListItemIcon>
           <ListItemText primary='Pyydä ohjelmaa' />
         </MenuItem>
       </Menu>
