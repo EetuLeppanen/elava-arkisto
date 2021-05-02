@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import SearchAutocomplete from "./SearchAutocomplete";
+import ComplexGrid from './ComplexGrid';
 
 function SearchTitles() {
   const [title, setTitle] = useState([]);
+  const [ohjelmat, setOhjelmat] = useState([]);
 
   //Tullaan käyttämään myöhemmin, const hakusanalle
   // const editSearchterm = (e) => setSearchterm(e.target.value);
@@ -26,16 +28,21 @@ function SearchTitles() {
         },
       })
       .then((res) => {
+        setOhjelmat(res.data.hits.hits);
         for (var i = 0; i < res.data.hits.hits.length; i++) {
           //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
           title.push(res.data.hits.hits[i]._source.MAINTITLE);
         }
-        
+
         console.log(title);
       });
   }, []);
 
-  return <SearchAutocomplete title={title} />;
+  return (<div>
+    <SearchAutocomplete title={title} />
+    <ComplexGrid ohjelmat={ohjelmat}/>
+  </div>
+  );
 }
 export default SearchTitles;
 

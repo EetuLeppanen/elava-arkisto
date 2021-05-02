@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -31,29 +31,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid(props) {
   const classes = useStyles();
-
-  const items = [];
-console.log(props.title._source.MAINTITLE)
-// for (const [index, value] of titles)
-
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
+        {props.ohjelmat.map((ohjelma, index) => {
+          return(
           <GridListTile key={yle}>
             <img src={yle} alt="paskaa" />
             <GridListTileBar
-              title={props.title._source.MAINTITLE}
+              title={ohjelma._source.MAINTITLE}
               classes={{
                 root: classes.titleBar,
                 title: classes.title,
               }}
               actionIcon={
-                <IconButton aria-label={`star ${props.title._source.MAINTITLE}`}>
+                <IconButton aria-label={`star ${ohjelma._source.MAINTITLE}`}>
                   <StarBorderIcon className={classes.title} />
                 </IconButton>
               }
             />
-          </GridListTile>
+          </GridListTile>)
+
+        })}
         ))
       </GridList>
     </div>
