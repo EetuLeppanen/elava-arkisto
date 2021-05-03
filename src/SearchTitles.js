@@ -16,7 +16,9 @@ function SearchTitles() {
     const query = {
       query: {
         match_all: {},
+      
       },
+      size: 50,
     };
 
     axios

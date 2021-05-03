@@ -4,7 +4,7 @@ import { blue, green } from "@material-ui/core/colors";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MenuMUI from "./navigationMUI/MenuMUI";
-import Etusivu from "./Etusivu";
+import EtuSivu from "./EtuSivu";
 import SearchTitles from "./SearchTitles";
 import SearchResult from "./SearchResult";
 import RequestPage from './RequestPage';
@@ -61,7 +61,7 @@ function ProjektiApp() {
           <MenuMUI />
           <Switch>
             <Route path="/search/:value" component={SearchResult} />
-            <Route exact path="/etusivu" component={Etusivu} />
+            <Route exact path="/etusivu" component={EtuSivu} />
             <Route path="/pyyntosivu" component={RequestPage}/>
             <Route path="/" component={SearchTitles} />
           </Switch>
