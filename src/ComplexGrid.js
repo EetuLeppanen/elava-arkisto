@@ -21,13 +21,18 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
   },
   title: {
-    color: theme.palette.primary.light,
+    color: '#FFFFFF',
   },
   titleBar: {
     background:
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
+
+
+
+
+
 
 export default function ComplexGrid(props) {
   const classes = useStyles();
@@ -37,7 +42,7 @@ export default function ComplexGrid(props) {
         {props.ohjelmat.map((ohjelma, index) => {
           return(
           <GridListTile key={yle}>
-            <img src={yle} alt="paskaa" />
+            <a href={"http://localhost:3000/search/" +ohjelma._source.MAINTITLE}> <img src={yle} alt="yle"/> </a>
             <GridListTileBar
               title={ohjelma._source.MAINTITLE}
               classes={{
