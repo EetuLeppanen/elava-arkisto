@@ -41,16 +41,21 @@ const useStyles = makeStyles({
 function SearchResult(props) {
   const classes = useStyles();
   const [programs, setPrograms] = useState([]);
+ 
 
   
     let { value } = useParams(); //komponentti saa parametreinä hakusanan
+    let { type } = useParams(); //komponentti saa parametreinä ohjelman tyypin
 
   useEffect(() => {
     const query = {
       query: {
         match: {
-          MAINTITLE: <text>"</text> + value + <text>"</text>, 
+          MAINTITLE: <text>"</text> + value + <text>"</text>,
           //ohjelma tekee get pyynnön elasticsearchiin parametrinä saadulla hakusanalla
+        },
+        match: {
+          TYPE: <text>"</text> + type + <text>"</text>,
         },
       },
     };
@@ -64,6 +69,7 @@ function SearchResult(props) {
       })
       .then((res) => {
         console.log(res.data.hits.hits);
+        console.log(type);
         setPrograms(res.data.hits.hits); //tulos asetetaan muuttujaan
       });
   }, []);

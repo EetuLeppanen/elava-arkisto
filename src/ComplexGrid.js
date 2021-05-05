@@ -38,7 +38,7 @@ export default function ComplexGrid(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <GridList className={classes.gridList} cols={2.5}>
+      <GridList className={classes.gridList} cols={4.5}>
         {props.ohjelmat.map((ohjelma, index) => {
           return(
           <GridListTile key={yle}>

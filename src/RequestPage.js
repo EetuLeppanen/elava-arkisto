@@ -65,7 +65,7 @@ function RequestPage (){
     <br></br>
     <br></br>
                 
-                Sivuston ylläpitäjille voi lähettää sähköpostia <Mailto email="joonaksensahkoposti@hotmail.fi" subject="Ohjelmatoive" body="Haluaisin toivoa ohjelmaa X">
+                Sivuston ylläpitäjille voi lähettää sähköpostia <Mailto email="innovatiimi@hotmail.com" subject="Ohjelmatoive" body="Haluaisin toivoa ohjelmaa X">
     tämän pohjan avulla,
   </Mailto> 
   &nbsp; ja pyytää ohjelmaa julkaistavaksi.

@@ -8,6 +8,7 @@ import EtuSivu from "./EtuSivu";
 import SearchTitles from "./SearchTitles";
 import SearchResult from "./SearchResult";
 import RequestPage from './RequestPage';
+import FeedbackCard from "./FeedbackCard";
 
 //Sivun laajuinen default-teema
 const theme = createMuiTheme({
@@ -63,7 +64,9 @@ function ProjektiApp() {
             <Route path="/search/:value" component={SearchResult} />
             <Route exact path="/etusivu" component={EtuSivu} />
             <Route path="/pyyntosivu" component={RequestPage}/>
+            <Route path="/palautesivu" component={FeedbackCard} />
             <Route path="/" component={SearchTitles} />
+
           </Switch>
         </div>
       </MuiThemeProvider>
