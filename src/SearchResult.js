@@ -54,9 +54,7 @@ function SearchResult(props) {
           MAINTITLE: <text>"</text> + value + <text>"</text>,
           //ohjelma tekee get pyynnön elasticsearchiin parametrinä saadulla hakusanalla
         },
-        match: {
-          TYPE: <text>"</text> + type + <text>"</text>,
-        },
+        
       },
     };
     axios

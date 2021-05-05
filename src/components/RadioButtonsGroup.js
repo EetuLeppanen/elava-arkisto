@@ -11,6 +11,7 @@ export default function RadioButtonsGroup() {
   const handleChange = (event) => {
     setType(event.target.value);
   };
+  console.log(type);
 
   return (
     <FormControl component="fieldset">
@@ -19,6 +20,7 @@ export default function RadioButtonsGroup() {
         <FormControlLabel value="radio" control={<Radio />} label="Radio" />
         <FormControlLabel value="tv" control={<Radio />} label="Televisio" />
         <FormControlLabel value="disabled" disabled control={<Radio />} label="(VIRTUAL REALITY)" />
+        
       </RadioGroup>
     </FormControl>
   );

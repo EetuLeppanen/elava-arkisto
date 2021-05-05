@@ -8,6 +8,7 @@ import RadioButtonsGroup from './components/RadioButtonsGroup';
 import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
 import ComplexGrid from './ComplexGrid';
+import ControlledOpenSelect from './components/ControlledOpenSelect';
 
 function SearchAutocomplete(props) {
   const [title, setTitle] = useState([]);
@@ -28,7 +29,7 @@ function SearchAutocomplete(props) {
       <br></br>
       {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}
-      <RadioButtonsGroup />
+      <RadioButtonsGroup /> <ControlledOpenSelect/>
       <Autocomplete
         value={title}
         onChange={(event, newValue) => {
