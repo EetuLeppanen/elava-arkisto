@@ -16,7 +16,7 @@ function SearchTitles() {
     const query = {
       query: {
         match_all: {},
-      
+
       },
       size: 50,
     };
@@ -42,7 +42,7 @@ function SearchTitles() {
 
   return (<div>
     <SearchAutocomplete title={title} />
-    <ComplexGrid ohjelmat={ohjelmat}/>
+    <ComplexGrid ohjelmat={ohjelmat} />
   </div>
   );
 }

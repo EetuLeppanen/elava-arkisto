@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ControlledOpenSelect() {
   const classes = useStyles();
-  const [language, setLanguage] = React.useState('');
+  const [genre, setGenre] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setLanguage(event.target.value);
+    setGenre(event.target.value);
   };
 
   const handleClose = () => {
@@ -34,7 +34,8 @@ export default function ControlledOpenSelect() {
   const handleOpen = () => {
     setOpen(true);
   };
-
+console.log(genre);
+  
   return (
     <div>
       <Button className={classes.button} onClick={handleOpen}>
@@ -48,15 +49,15 @@ export default function ControlledOpenSelect() {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={language}
+          value={genre}
           onChange={handleChange}
         >
           <MenuItem value="">
             <em>Kaikki</em>
           </MenuItem>
-          <MenuItem value={10}>Suomi</MenuItem>
-          <MenuItem value={20}>Ruotsi</MenuItem>
-          <MenuItem value={30}>Saame</MenuItem>
+          <MenuItem value="draama" >Draama</MenuItem>
+          <MenuItem value="opetusohjelma">Opetusohjelma</MenuItem>
+          <MenuItem value="viihde">Viihde</MenuItem>
         </Select>
       </FormControl>
     </div>

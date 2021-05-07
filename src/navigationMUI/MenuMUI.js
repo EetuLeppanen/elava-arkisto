@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpIcon from '@material-ui/icons/Help';
 import innovateam11 from './innovateam11.png';
+import FeedbackIcon from '@material-ui/icons/Feedback';
 
 
 function MenuMUI () {
@@ -53,6 +54,12 @@ function MenuMUI () {
           <ListItemIcon><HelpIcon/></ListItemIcon>
           <ListItemText primary='Pyydä ohjelmaa' />
         </MenuItem>
+
+        <MenuItem onClick={handleClose} component={Link} to='/palautesivu'>
+          <ListItemIcon><FeedbackIcon /></ListItemIcon>
+          <ListItemText primary='Lähetä palautetta' />
+        </MenuItem>
+
       </Menu>
     </MenuList>
   </div>

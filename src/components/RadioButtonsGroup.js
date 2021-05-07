@@ -6,19 +6,21 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 export default function RadioButtonsGroup() {
-  const [value, setValue] = React.useState('female');
+  const [type, setType] = React.useState('female');
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setType(event.target.value);
   };
+  console.log(type);
 
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">Kumpi?</FormLabel>
-      <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+      <RadioGroup aria-label="gender" name="gender1" value={type} onChange={handleChange}>
         <FormControlLabel value="radio" control={<Radio />} label="Radio" />
-        <FormControlLabel value="televisio" control={<Radio />} label="Televisio" />
+        <FormControlLabel value="tv" control={<Radio />} label="Televisio" />
         <FormControlLabel value="disabled" disabled control={<Radio />} label="(VIRTUAL REALITY)" />
+        
       </RadioGroup>
     </FormControl>
   );
