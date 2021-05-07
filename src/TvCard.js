@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,11 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import MovieIcon from "@material-ui/icons/Movie";
-import Fade from "react-awesome-reveal";
+import {  Fade } from "react-awesome-reveal";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import WebIcon from '@material-ui/icons/Web';
+import TvIcon from '@material-ui/icons/Tv';
 
 function TvCard(props) {
   const useStyles = makeStyles({
@@ -61,6 +62,7 @@ function TvCard(props) {
         <CardContent>
           <Fade>
             <Typography className={classes.font2}>
+            <TvIcon/>
               <p>
                 {" "}
                 <b>{props.data._source.MAINTITLE}</b>{" "}
