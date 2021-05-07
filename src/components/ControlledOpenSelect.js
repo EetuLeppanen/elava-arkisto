@@ -42,7 +42,7 @@ console.log(genre);
       </Button>
       <LanguageIcon/>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Language</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">Genre</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"

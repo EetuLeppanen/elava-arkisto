@@ -12,7 +12,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpIcon from '@material-ui/icons/Help';
-import innovateam11 from './innovateam11.png';
 import FeedbackIcon from '@material-ui/icons/Feedback';
 
 

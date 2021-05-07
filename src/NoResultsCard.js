@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 
-import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import DateRangeIcon from "@material-ui/icons/DateRange";
-import RadioIcon from "@material-ui/icons/Radio";
-import MovieIcon from "@material-ui/icons/Movie";
-import { Reveal, Fade } from "react-awesome-reveal";
-import RadioCard from "./RadioCard";
-import Collapse from "@material-ui/core/Collapse";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-import WebIcon from '@material-ui/icons/Web';
 
 function NoResultsCard(props) {
   const useStyles = makeStyles({

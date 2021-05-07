@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 import RadioButtonsGroup from './components/RadioButtonsGroup';
 //import ControlledOpenSelect from './components/ControlledOpenSelect';
 import SearchIcon from '@material-ui/icons/Search';
-import ReactDOM from 'react-dom';
-import ComplexGrid from './ComplexGrid';
 import ControlledOpenSelect from './components/ControlledOpenSelect';
 
 function SearchAutocomplete(props) {
