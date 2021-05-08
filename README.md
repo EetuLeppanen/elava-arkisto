@@ -13,7 +13,7 @@ With our service you can:
 - Find new interesting programs to check out.
 	
 	
-Data used in this project is provided by Yleisradio's best and most handsome employee Lauri Saarikoski.
+Data used in this project is provided by Yleisradio.
 
 Front end has been created with React.js.
 
