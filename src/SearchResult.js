@@ -86,7 +86,8 @@ function SearchResult(props) {
         if(key == "MAINTITLE") {
           var object1 = {match: { [key] : ".*" + value + ".*" }}
           var object2 = {prefix: { [key] : value }}
-          query.query.bool.should.push(object);
+          query.query.bool.should.push(object1);
+          query.query.bool.should.push(object2);
         } else if (key == "TYPE") {
           var object = {match: { [key] : value}}
           query.query.bool.must.push(object);
@@ -134,7 +135,7 @@ function SearchResult(props) {
         },
       })
       .then((res) => {
-        // console.log(res.data.hits.hits);
+        console.log(res.data.hits.hits);
         // console.log(type);
         setPrograms(res.data.hits.hits); //tulos asetetaan muuttujaan
       });
@@ -142,8 +143,11 @@ function SearchResult(props) {
 
   if (programs.length > 0) {
     return programs.map((program, index) => {
-      if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma
-      if (program._source.TYPE === "tv") return <TvCard data={program} />;       //jos tulos on tv-ohjelma
+      if (program._score > 1) {
+
+        if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma
+        if (program._source.TYPE === "tv") return <TvCard data={program} />;       //jos tulos on tv-ohjelma
+      }
     });
   } else {
     return <NoResultsCard/>
