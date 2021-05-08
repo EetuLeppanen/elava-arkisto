@@ -13,7 +13,7 @@ With our service you can:
 - Find new interesting programs to check out.
 	
 	
-Data used in this project is provided by Yleisradio's best and most handsome employee Lauri Saarikoski.
+Data used in this project is provided by Yleisradio.
 
 Front end has been created with React.js.
 
@@ -31,6 +31,23 @@ Clone or download this project https://github.com/EetuLeppanen/elava-arkisto.git
 Navigate to the directory cd /path_to/elava-arkisto
 
 run npm install
+
 npm start
 
 Your front end should be now all set.
+
+## Contributing 
+
+Pull requests are always welcome! But first we would like to hear about the changes you've planned and discuss about them. 
+There are no restrictions on the technologies you are allowed to use.
+
+
+
+## Authors
+
+Eetu Leppänen, Kristian Koskinen, Noel Marttinen, Kimi Korpela, Joonas Kirvesmäki
+
+## License
+
+
+
