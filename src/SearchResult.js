@@ -137,17 +137,21 @@ function SearchResult(props) {
       .then((res) => {
         console.log(res.data.hits.hits);
         // console.log(type);
-        setPrograms(res.data.hits.hits); //tulos asetetaan muuttujaan
+        var list = [];
+        res.data.hits.hits.map((program, index) => {
+          if (program._score > 1) {
+            list.push(program)
+          }
+        })
+        setPrograms(list); //tulos asetetaan muuttujaan
       });
   }, []);
 
   if (programs.length > 0) {
     return programs.map((program, index) => {
-      if (program._score > 1) {
 
         if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma
         if (program._source.TYPE === "tv") return <TvCard data={program} />;       //jos tulos on tv-ohjelma
-      }
     });
   } else {
     return <NoResultsCard/>
