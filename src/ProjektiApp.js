@@ -61,7 +61,7 @@ function ProjektiApp() {
           <CssBaseline />
           <MenuMUI />
           <Switch>
-            <Route path="/search/:value" component={SearchResult} />
+            <Route path="/search" component={SearchResult} />
             <Route exact path="/etusivu" component={EtuSivu} />
             <Route path="/pyyntosivu" component={RequestPage}/>
             <Route path="/palautesivu" component={FeedbackCard} />

@@ -41,13 +41,75 @@ const useStyles = makeStyles({
 function SearchResult(props) {
   const classes = useStyles();
   const [programs, setPrograms] = useState([]);
+  const [maintitle, setMaintitle] = useState('');
+  const [type, setType] = useState('');
+  const [search, setSearch] = useState('');
+
+  let query = {
+    "query": {
+      "bool": {
+      "must": [ ],
+      "must_not": [ ],
+      "should": [ ]
+    }},
+    "from": 0,
+    "size": 50,
+    "sort": [ ],
+    "aggs": { }
+    }
+
+  /*
+  let query = {
+    "query": {
+      "bool": {
+      "must": [ ],
+      "must_not": [ ],
+      "should": [
+        {"match_all": {}}
+        ]}},
+    "from": 0,
+    "size": 50,
+    "sort": [ ],
+    "aggs": { }
+    }
+  */
  
 
   
     let { value } = useParams(); //komponentti saa parametreinä hakusanan
-    let { type } = useParams(); //komponentti saa parametreinä ohjelman tyypin
 
   useEffect(() => {
+    if(props.location.querydata) {
+      for (const [key, value] of Object.entries(props.location.querydata)) {
+        console.log(`${key}: ${value}`);
+        console.log("avain: " + key);
+        var object = {match: { [key] : ".*" + value + ".*" }}
+        if(key == "MAINTITLE") {
+          query.query.bool.should.push(object);
+        } else {
+          query.query.bool.must.push(object);
+        }
+      } 
+
+      /*/
+      var paramlist = Object.keys(props.location.querydata)
+      console.log(paramlist)
+      for (var i in paramlist) {
+        var param = paramlist[i]
+        console.log(param)
+        console.log('param: ' + props.location.querydata.param)
+        query.query.bool.should.push({
+            "prefix": props.location.querydata.param
+        })
+      }
+      */
+    } else if (props.location.pathname.substring(8)) {
+      var object = {match: { MAINTITLE : props.location.pathname.substring(8) }}
+      query.query.bool.should.push(object);
+    }
+    
+    console.log(query);
+    /*
     const query = {
       query: {
         match: {
@@ -57,6 +119,7 @@ function SearchResult(props) {
         
       },
     };
+    */
     axios
       .get("http://46.101.128.190:9200/testataan/_doc/_search", {
         // get pyyntö elasticsearchiin
@@ -66,8 +129,8 @@ function SearchResult(props) {
         },
       })
       .then((res) => {
-        console.log(res.data.hits.hits);
-        console.log(type);
+        // console.log(res.data.hits.hits);
+        // console.log(type);
         setPrograms(res.data.hits.hits); //tulos asetetaan muuttujaan
       });
   }, []);
