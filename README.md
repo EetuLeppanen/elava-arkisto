@@ -36,18 +36,18 @@ npm start
 
 Your front end should be now all set.
 
-##Contributing 
+## Contributing 
 
 Pull requests are always welcome! But first we would like to hear about the changes you've planned and discuss about them. 
 There are no restrictions on the technologies you are allowed to use.
 
 
 
-##Authors
+## Authors
 
 Eetu Leppänen, Kristian Koskinen, Noel Marttinen, Kimi Korpela, Joonas Kirvesmäki
 
-##License
+## License
 
 
 
