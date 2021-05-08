@@ -83,11 +83,16 @@ function SearchResult(props) {
       for (const [key, value] of Object.entries(props.location.querydata)) {
         console.log(`${key}: ${value}`);
         console.log("avain: " + key);
-        var object = {match: { [key] : ".*" + value + ".*" }}
         if(key == "MAINTITLE") {
+          var object1 = {match: { [key] : ".*" + value + ".*" }}
+          var object2 = {prefix: { [key] : value }}
           query.query.bool.should.push(object);
-        } else {
+        } else if (key == "TYPE") {
+          var object = {match: { [key] : value}}
           query.query.bool.must.push(object);
+        } else if (key == "GENRE") {
+          var object = {match: { [key] : value}}
+          query.query.bool.should.push(object);
         }
       } 
 
