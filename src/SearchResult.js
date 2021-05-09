@@ -102,7 +102,7 @@ function SearchResult(props) {
         // console.log(type);
         var list = [];
         res.data.hits.hits.map((program, index) => {
-          if (program._score > 1) {
+          if (program._score > 1.5) {
             list.push(program);
           }
         });
