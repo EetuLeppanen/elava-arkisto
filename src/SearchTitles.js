@@ -23,7 +23,7 @@ function SearchTitles() {
 
     axios
       .get("http://46.101.128.190:9200/testataan/_doc/_search", {
-        // hakee elasticsearchista
+        // get pyyntö elasticsearchiin
         params: {
           source: JSON.stringify(query),
           source_content_type: "application/json",

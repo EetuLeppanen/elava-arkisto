@@ -38,6 +38,12 @@ Your front end should be now all set.
 
 ## Backend
 
+REST api was made with Elasticsearch 7. 
+
+Process the xml and csv files with the python programs included in this project and post the json files into Elasticsearch. The json files are ready-to-use after using the python program.
+
+Put the proper ip (for example 1.2.3.4.5:9200/index/_doc/_search) into Searchtitles.js and Searchresult.js.
+
 ## Contributing 
 
 Pull requests are always welcome! But first we would like to hear about the changes you've planned and discuss about them. 
