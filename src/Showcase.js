@@ -56,7 +56,7 @@ export default function ComplexGrid(props) {
                       ohjelma._source.MAINTITLE
                     }
                   >
-                    {ohjelma._source.MAINTITLE}
+                    {ohjelma._source.MAINTITLE.replace(/[0-9,()]/g, '')}
                   </a>
                 }
                 classes={{

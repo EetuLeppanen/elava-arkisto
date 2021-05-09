@@ -7,6 +7,8 @@ import Showcase from './Showcase';
 function SearchTitles() {
   const [title, setTitle] = useState([]);
   const [programs, setPrograms] = useState([]);
+  const [tvlist, setTvlist] = useState([]);
+  const [radiolist, setRadiolist] = useState([]);
 
   //Tullaan käyttämään myöhemmin, const hakusanalle
   // const editSearchterm = (e) => setSearchterm(e.target.value);
@@ -34,6 +36,13 @@ function SearchTitles() {
         for (var i = 0; i < res.data.hits.hits.length; i++) {
           //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
           title.push(res.data.hits.hits[i]._source.MAINTITLE.replace(/[0-9,()]/g, ''));
+          if (res.data.hits.hits[i]._source.TYPE == 'tv') {
+            tvlist.push(res.data.hits.hits[i]._source.MAINTITLE.replace(/[0-9,()]/g, ''))
+          }
+          if (res.data.hits.hits[i]._source.TYPE == 'radio') {
+            radiolist.push(res.data.hits.hits[i]._source.MAINTITLE.replace(/[0-9,()]/g, ''))
+          }
+
         }
 
         console.log(title);
@@ -41,7 +50,7 @@ function SearchTitles() {
   }, []);
 
   return (<div>
-    <SearchAutocomplete title={title} />
+    <SearchAutocomplete title={title} tvlist={tvlist} radiolist={radiolist}/>
     <Showcase programs={programs} />
   </div>
   );

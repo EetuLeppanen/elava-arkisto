@@ -1,4 +1,4 @@
-import React, {useState, Redirect} from 'react';
+import React, {useState, Redirect, useEffect} from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -37,13 +37,22 @@ function SearchAutocomplete(props) {
   const [value, setValue] = useState('');
   const [querydata, setQuerydata] = useState({});
   const [checked, setChecked] = React.useState(false);
+  const [options, setOptions] = useState([]);
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
 
+  useEffect(()=>{
+    setOptions(props.title);
+  }, [])
 
   function typeChange(type) {
     setQuerydata(prevState => ({...prevState, ["TYPE"]: type}))
+    if (type == 'tv') {
+      setOptions(props.tvlist);
+    } else if (type == 'radio') {
+      setOptions(props.radiolist);
+    }
   }
 
   function genreChange(genre) {
@@ -90,7 +99,7 @@ function SearchAutocomplete(props) {
           freeSolo
           id=""
           disableClearable
-          options={props.title}
+          options={options}
           renderInput={(params) => (
             <TextField
               {...params}
