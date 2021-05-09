@@ -3,16 +3,17 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-
+import Grid from "@material-ui/core/Grid";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import MovieIcon from "@material-ui/icons/Movie";
-import {  Fade } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-import WebIcon from '@material-ui/icons/Web';
-import TvIcon from '@material-ui/icons/Tv';
+import WebIcon from "@material-ui/icons/Web";
+import TvIcon from "@material-ui/icons/Tv";
+import { NoEncryption } from "@material-ui/icons";
 
 function TvCard(props) {
   const useStyles = makeStyles({
@@ -23,7 +24,7 @@ function TvCard(props) {
       font: "poppins",
       padding: 5,
       margin: 30,
-      borderRadius: 35,
+      borderRadius: 9,
       width: "60%",
     },
     ohjelma1: {
@@ -47,6 +48,12 @@ function TvCard(props) {
       font: "poppins",
       borderRadius: 50,
     },
+    root: {
+      flexGrow: 1,
+      backgroundColor: "#f2f2f2",
+      height: 80,
+    },
+  
   });
   const classes = useStyles();
 
@@ -61,68 +68,65 @@ function TvCard(props) {
       <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
         <CardContent>
           <Fade>
-            <Typography className={classes.font2}>
-            <TvIcon/>
-              <p>
-                {" "}
-                <b>{props.data._source.MAINTITLE}</b>{" "}
-              </p>
-            </Typography>
-            
-            <p>
-              <SupervisedUserCircleIcon />
-              Kuvaus
-            </p>
-            <p>{props.data._source.DESC}</p>
-            <br></br>
+            <div>
+              <Grid container spacing={1}>
+                <Grid item xs={6}>
+                  <p>
+                    {" "}
+                    <b>
+                      <h2>
+                        {props.data._source.MAINTITLE.replace(/[0-9,()]/g, "")}
+                      </h2>
+                    </b>{" "}
+                  </p>
+                </Grid>
+              </Grid>
+            </div>
+            <Typography className={classes.font2}></Typography>
+            <div className={classes.root}>
+              <Grid container spacing={1}>
+                <Grid item xs={2}>
+                  <p>
+                    <b>{props.data._source.GENRE}</b>
+                  </p>
+                </Grid>
+                <Grid item xs={3}>
+                  <p>
+                    <b> Julkaisuvuosi: {props.data._source.YEAR}</b>
+                  </p>
+                </Grid>
+              </Grid>
+            </div>
 
+            <p>{props.data._source.DESC}</p>
             <Collapse in={checked}>
-            <Fade>
-              <p>
-                <DateRangeIcon />
-                Näyttelijät
-              </p>
-              <p> {props.data._source.ACTORS}</p>
+              <Fade>
+                <p>Näyttelijät:</p>
+                <p> {props.data._source.ACTORS}</p>
               </Fade>
             </Collapse>
 
             <Collapse in={checked}>
               <Fade>
-              <p>
-                <MovieIcon />
-                Genre
-              </p>
-              <p>{props.data._source.GENRE}</p>
-              <br></br>
+                <br></br>
               </Fade>
             </Collapse>
 
             <Collapse in={checked}>
-            <Fade>
-              <p>
-                <DateRangeIcon />
-                Julkaisuvuosi
-              </p>
-              <p> {props.data._source.YEAR}</p>
-              </Fade>
+              <Fade></Fade>
             </Collapse>
-            
 
             <Collapse in={checked}>
-            <Fade>
-              <p>
-                <WebIcon />
-                Linkki
-                
-              </p>
-              <a href={"https://areena.yle.fi/" +props.data._source.YLE_ID}>Linkki Yle Areenaan </a>
+              <Fade>
+                <a href={"https://areena.yle.fi/" + props.data._source.YLE_ID}>
+                  Linkki Yle Areenaan
+                </a>
+                <br></br>
               </Fade>
             </Collapse>
-
-            
 
             <FormControlLabel
-              control={<Switch checked={checked} onChange={handleChange}  />}
+              control={<Switch checked={checked} onChange={handleChange} />}
               label="Näytä lisää"
             />
           </Fade>

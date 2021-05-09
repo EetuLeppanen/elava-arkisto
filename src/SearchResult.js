@@ -148,6 +148,7 @@ function SearchResult(props) {
   }, []);
 
   if (programs.length > 0) {
+    
     return programs.map((program, index) => {
 
         if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma

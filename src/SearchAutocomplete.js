@@ -10,12 +10,28 @@ import ControlledOpenSelect from './components/ControlledOpenSelect';
 import Switch from "@material-ui/core/Switch";
 import Collapse from "@material-ui/core/Collapse";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
 function SearchAutocomplete(props) {
+  const useStyles = makeStyles({
+    ohjelma: {
+      alignContent: "center",
+      color: "black",
+      borderColor: "#000000",
+      font: "poppins",
+      padding: 5,
+      margin: 0,
+      borderRadius: 9,
+      width: "60%",
+    },
+    
+  });
+  const classes = useStyles();
+
   const [title, setTitle] = useState([]);
   const [value, setValue] = useState('');
   const [querydata, setQuerydata] = useState({});
-
   const [checked, setChecked] = React.useState(false);
   const handleChange = () => {
     setChecked((prev) => !prev);
@@ -33,14 +49,14 @@ function SearchAutocomplete(props) {
   //Material-UI:n Autocomplete
   
   return (
-    <div style={{ justifyContent: 'center', }}>
+    <div className={classes.ohjelma}>
 
 
       <br></br>
       <br></br>
       {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}
-  
+ 
       <Autocomplete
         value={title}
         onChange={(event, newValue) => {
@@ -66,21 +82,28 @@ function SearchAutocomplete(props) {
             InputProps={{ ...params.InputProps, type: 'search' }} />
         )}
       />
+
       {/*
       <Button style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={Link}
         to={`/search/${value}`}><SearchIcon />Hae</Button>
       -->*/}
-
-        <Button style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={Link}
-        to={{pathname: '/search', querydata: querydata}}><SearchIcon />Hae</Button>
-<br/><br/>
-<Collapse in={checked}>
+<Grid container spacing={1}>
+                <Grid item xs={3}>
+                <Collapse in={checked}>
       <RadioButtonsGroup typeChange={typeChange} />
       </Collapse>
-
+      </Grid>
+      <Grid item xs={6}>
       <Collapse in ={checked}>
       <ControlledOpenSelect genreChange={genreChange}/>
       </Collapse>
+                </Grid>
+              </Grid>
+              <br/><br/>
+        <Button style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={Link}
+        to={{pathname: '/search', querydata: querydata}}><SearchIcon />Hae</Button>
+<br/><br/>
+
 
 <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange}  />}

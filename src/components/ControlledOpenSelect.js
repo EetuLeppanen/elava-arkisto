@@ -42,7 +42,7 @@ console.log(genre);
     <div>
       <Button className={classes.button} onClick={handleOpen}>
       </Button>
-      <BallotIcon/>
+      
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Genre</InputLabel>
         <Select
@@ -62,6 +62,8 @@ console.log(genre);
           <MenuItem value="viihde">Viihde</MenuItem>
         </Select>
       </FormControl>
+      <br></br>
     </div>
+    
   );
 }

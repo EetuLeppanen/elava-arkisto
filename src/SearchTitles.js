@@ -33,7 +33,7 @@ function SearchTitles() {
         setOhjelmat(res.data.hits.hits);
         for (var i = 0; i < res.data.hits.hits.length; i++) {
           //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
-          title.push(res.data.hits.hits[i]._source.MAINTITLE);
+          title.push(res.data.hits.hits[i]._source.MAINTITLE.replace(/[0-9,()]/g, ''));
         }
 
         console.log(title);

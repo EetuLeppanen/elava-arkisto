@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+    
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -37,29 +38,6 @@ const useStyles = makeStyles((theme) => ({
 export default function ComplexGrid(props) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <GridList className={classes.gridList} cols={4.5}>
-        {props.ohjelmat.map((ohjelma, index) => {
-          return(
-          <GridListTile key={yle}>
-            <a href={"http://localhost:3000/search/" +ohjelma._source.MAINTITLE}> <img src={yle} alt="yle"/> </a>
-            <GridListTileBar
-              title={ohjelma._source.MAINTITLE}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              actionIcon={
-                <IconButton aria-label={`star ${ohjelma._source.MAINTITLE}`}>
-                  <StarBorderIcon className={classes.title} />
-                </IconButton>
-              }
-            />
-          </GridListTile>)
-
-        })}
-        ))
-      </GridList>
-    </div>
-  );
+   <p>kakka</p>
+  )
 }

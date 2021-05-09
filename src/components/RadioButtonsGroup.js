@@ -15,7 +15,7 @@ export default function RadioButtonsGroup(props) {
 
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Kumpi?</FormLabel>
+      
       <RadioGroup aria-label="gender" name="gender1" value={type} onChange={handleChange}>
         <FormControlLabel value="radio" control={<Radio />} label="Radio" />
         <FormControlLabel value="tv" control={<Radio />} label="Televisio" />

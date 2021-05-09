@@ -17,7 +17,7 @@ import FeedbackIcon from '@material-ui/icons/Feedback';
 
 function MenuMUI () {
   const [anchorMenu, setMenuOpen] = useState(null);
-
+  const preventDefault = (event) => event.preventDefault();
   const handleMenu = (event) => { setMenuOpen(event.currentTarget); }
   const handleClose = () => { setMenuOpen(null); }
 
@@ -26,7 +26,11 @@ function MenuMUI () {
     <AppBar position='static'>
       <Toolbar>
          <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>
-         <Typography variant='h5' style={ {width: 100, flexGrow: 1, textAlign: 'center'} }>Elävän arkiston hakusovellus</Typography>
+         <Typography variant='h5' style={ {width: 100, flexGrow: 1, textAlign: 'center'}  }>
+         
+         Elävä arkisto
+         
+  </Typography>
       </Toolbar>
     </AppBar>
 
