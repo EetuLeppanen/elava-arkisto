@@ -22,7 +22,7 @@ function MenuMUI () {
   const handleClose = () => { setMenuOpen(null); }
 
   return (
-    <div>
+    <div style={{width: "100%"}}>
     <AppBar position='static'>
       <Toolbar>
          <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>

@@ -16,32 +16,7 @@ function FeedbackCard(props) {
             borderRadius: 35,
             width: "60%",
         },
-        ohjelma1: {
-            backgroundColor: "#faf5f5",
-            color: "black",
-            font: "poppins",
-            borderRadius: 5,
-        },
-        //Korttien teema
-        font: {
-            backgroundColor: "#faf5f5",
-            color: "black",
-            fontSize: 20,
-            font: "poppins",
-            borderRadius: 50,
-        },
-        font2: {
-            backgroundColor: "#faf5f5",
-            color: "black",
-            fontSize: 30,
-            font: "poppins",
-            borderRadius: 50,
-        },
-        img: {
-            display: 'block',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-        }
+     
     });
     const classes = useStyles();
 
@@ -59,13 +34,14 @@ function FeedbackCard(props) {
             <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
                 <CardContent>
 
-                    Mitä tykkäsit sivustosta? Voit antaa risuja ja/tai ruusuja lähettämällä sähköpostia kehittäjille
-                     <Mailto email="innovatiimi@hotmail.com" subject="Palautelomake" body="Hei InnovaTeam! Pidin... En pitänyt..."> tämän pohjan avulla. </Mailto>
+                    Törmäsitkö ongelmaan tai haluaisit antaa kehitysehdotuksen? Lähetä meille 
+                     <Mailto email="innovatiimi@hotmail.com" subject="Palautelomake" body="Hei InnovaTeam! Pidin... En pitänyt..."> sähköpostia! </Mailto>
                     <br/>
                     <br/>
-                    Kiitos palautteestasi jo etukäteen! Me todella arvostamme sitä!
+                    <br/>
+                    <br/>
                 </CardContent>
-                <img src={thankyoupic} alt='kiitos' className={classes.img}></img>
+       
             </Card>
         </div>
     );

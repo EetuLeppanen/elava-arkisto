@@ -16,14 +16,18 @@ import Grid from "@material-ui/core/Grid";
 function SearchAutocomplete(props) {
   const useStyles = makeStyles({
     ohjelma: {
-      alignContent: "center",
+      justifyContent: "center",
+      alignItems: "center",
+      display: "flex",
+      flexWrap: "wrap",
       color: "black",
       borderColor: "#000000",
       font: "poppins",
-      padding: 5,
-      margin: 0,
+      padding: 0,
+   
       borderRadius: 9,
-      width: "60%",
+      width:"50%",
+      backgroundColor:"#f2f2f2"
     },
     
   });
@@ -49,15 +53,16 @@ function SearchAutocomplete(props) {
   //Material-UI:n Autocomplete
   
   return (
-    <div className={classes.ohjelma}>
+    <div style={{  justifyContent: "center", flexGrow: 1, backgroundColor: "#f2f2f2",}}>
 
 
       <br></br>
       <br></br>
       {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}
- 
+  <div style={{ display: 'flex',  justifyContent:'center', alignItems:'center',}}>
       <Autocomplete
+        style={{ width: "50%" }}
         value={title}
         onChange={(event, newValue) => {
           setValue(newValue);
@@ -76,39 +81,38 @@ function SearchAutocomplete(props) {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Etsi.."
+            label="Hae elävästä arkistosta..."
             margin="normal"
             /* variant="outlined" */
             InputProps={{ ...params.InputProps, type: 'search' }} />
         )}
       />
 
-      {/*
-      <Button style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={Link}
-        to={`/search/${value}`}><SearchIcon />Hae</Button>
-      -->*/}
-<Grid container spacing={1}>
-                <Grid item xs={3}>
+      <Button  variant="contained" size="small" component={Link }
+        to={{pathname: '/search', querydata: querydata}}><SearchIcon />Hae</Button>
+</div>
+     
+
+<Grid container justify="center" spacing={1}>
+                <Grid item xs={4}>
                 <Collapse in={checked}>
       <RadioButtonsGroup typeChange={typeChange} />
       </Collapse>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={2}>
       <Collapse in ={checked}>
       <ControlledOpenSelect genreChange={genreChange}/>
       </Collapse>
                 </Grid>
               </Grid>
-              <br/><br/>
-        <Button style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={Link}
-        to={{pathname: '/search', querydata: querydata}}><SearchIcon />Hae</Button>
-<br/><br/>
+              
 
-
+<div style={{ display: "flex", justifyContent: "center", flexGrow: 1 }}>
 <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange}  />}
-              label="Lisää hakuvaihtoehtoja"
+              label="Tarkenna hakua"
             />
+            </div>
       <br></br>
       <br></br>
       <br></br>

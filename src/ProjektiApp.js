@@ -45,9 +45,10 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       "@global": {
         body: {
-          paddingLeft: "50px",
-          paddingRight: "50px",
+          paddingLeft: "9%",
+          paddingRight: "9%",
           backgroundColor: "#00b6ca90",
+          
           
         },
       },

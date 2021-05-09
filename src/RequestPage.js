@@ -3,12 +3,6 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 
-
-
-
-
-
-
 function RequestPage (){
     const useStyles = makeStyles({
         ohjelma: {
@@ -60,15 +54,12 @@ function RequestPage (){
           <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
             <CardContent>
              
-    Kaikki ohjelmat eivät välttämättä ole valmiiksi elävässä arkistossa, ja niitä voi pyytää täältä.
+    Kaikki ohjelmat eivät välttämättä ole vielä täällä, voit pyytää ohjelmia sähköpostilla  <Mailto email="innovatiimi@hotmail.com" subject="Ohjelmatoive" body="Haluaisin toivoa ohjelmaa X">
+    painamalla tästä
+  </Mailto>
 
-    <br></br>
-    <br></br>
-                
-                Sivuston ylläpitäjille voi lähettää sähköpostia <Mailto email="innovatiimi@hotmail.com" subject="Ohjelmatoive" body="Haluaisin toivoa ohjelmaa X">
-    tämän pohjan avulla,
-  </Mailto> 
-  &nbsp; ja pyytää ohjelmaa julkaistavaksi.
+   
+  &nbsp; 
                 
     
                

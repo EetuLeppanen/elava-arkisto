@@ -69,7 +69,7 @@ function TvCard(props) {
         <CardContent>
           <Fade>
             <div>
-              <Grid container spacing={1}>
+              <Grid container spacing={20}>
                 <Grid item xs={6}>
                   <p>
                     {" "}
@@ -85,12 +85,12 @@ function TvCard(props) {
             <Typography className={classes.font2}></Typography>
             <div className={classes.root}>
               <Grid container spacing={1}>
-                <Grid item xs={2}>
+                <Grid item xs={4}>
                   <p>
                     <b>{props.data._source.GENRE}</b>
                   </p>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={4}>
                   <p>
                     <b> Julkaisuvuosi: {props.data._source.YEAR}</b>
                   </p>
