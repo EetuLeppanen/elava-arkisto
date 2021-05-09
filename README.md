@@ -55,7 +55,6 @@ There are no restrictions on the technologies you are allowed to use.
 
 Eetu Leppänen, Kristian Koskinen, Noel Marttinen, Kimi Korpela, Joonas Kirvesmäki
 
-## License
 
 
 
