@@ -7,11 +7,19 @@ import RadioButtonsGroup from './components/RadioButtonsGroup';
 //import ControlledOpenSelect from './components/ControlledOpenSelect';
 import SearchIcon from '@material-ui/icons/Search';
 import ControlledOpenSelect from './components/ControlledOpenSelect';
+import Switch from "@material-ui/core/Switch";
+import Collapse from "@material-ui/core/Collapse";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 function SearchAutocomplete(props) {
   const [title, setTitle] = useState([]);
   const [value, setValue] = useState('');
   const [querydata, setQuerydata] = useState({});
+
+  const [checked, setChecked] = React.useState(false);
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
 
 
   function typeChange(type) {
@@ -32,8 +40,7 @@ function SearchAutocomplete(props) {
       <br></br>
       {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
   <div>{`inputValue: '${inputValue}'`}</div> */}
-      <RadioButtonsGroup typeChange={typeChange} />
-      <ControlledOpenSelect genreChange={genreChange}/>
+  
       <Autocomplete
         value={title}
         onChange={(event, newValue) => {
@@ -66,6 +73,19 @@ function SearchAutocomplete(props) {
 
         <Button style={{ backgroundColor: "#262a2e", color: "#FFFFFF" }} variant="contained" component={Link}
         to={{pathname: '/search', querydata: querydata}}><SearchIcon />Hae</Button>
+<br/><br/>
+<Collapse in={checked}>
+      <RadioButtonsGroup typeChange={typeChange} />
+      </Collapse>
+
+      <Collapse in ={checked}>
+      <ControlledOpenSelect genreChange={genreChange}/>
+      </Collapse>
+
+<FormControlLabel
+              control={<Switch checked={checked} onChange={handleChange}  />}
+              label="Lisää hakuvaihtoehtoja"
+            />
       <br></br>
       <br></br>
       <br></br>
