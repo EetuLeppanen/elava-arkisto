@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-    
+    backgroundColor: "#f2f2f2",
   },
   gridList: {
     flexWrap: 'nowrap',
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
+  
   },
   title: {
     color: '#FFFFFF',
@@ -38,6 +38,39 @@ const useStyles = makeStyles((theme) => ({
 export default function ComplexGrid(props) {
   const classes = useStyles();
   return (
-   <p>kakka</p>
-  )
+    
+
+    <div className={classes.root}>
+   
+      <GridList className={classes.gridList} cols={4}>
+        {props.programs.map((ohjelma, index) => {
+          return(
+          <GridListTile key={yle}>
+            <img src={yle} alt="kuva" />
+
+            <GridListTileBar
+           
+              subtitle = {<a href={"http://localhost:3000/search/" +ohjelma._source.MAINTITLE}>{ohjelma._source.MAINTITLE}</a>}
+              
+              classes={{
+                root: classes.titleBar,
+                title: classes.title,
+              }}
+              
+              
+            />
+          </GridListTile>)
+
+        })}
+        ))
+      </GridList>
+      <br></br>
+      <br></br>
+      
+      
+    </div>
+    
+    
+
+  );
 }

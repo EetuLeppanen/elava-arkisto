@@ -6,7 +6,8 @@ import ComplexGrid from './ComplexGrid';
 
 function SearchTitles() {
   const [title, setTitle] = useState([]);
-  const [ohjelmat, setOhjelmat] = useState([]);
+  const [programsInfo, setProgramsInfo] = useState([]);
+  const [programs, setPrograms] = useState([]);
 
   //Tullaan käyttämään myöhemmin, const hakusanalle
   // const editSearchterm = (e) => setSearchterm(e.target.value);
@@ -30,10 +31,11 @@ function SearchTitles() {
         },
       })
       .then((res) => {
-        setOhjelmat(res.data.hits.hits);
+        setPrograms(res.data.hits.hits);
         for (var i = 0; i < res.data.hits.hits.length; i++) {
           //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
           title.push(res.data.hits.hits[i]._source.MAINTITLE.replace(/[0-9,()]/g, ''));
+          programsInfo.push(res.data.hits.hits[i]._source);
         }
 
         console.log(title);
@@ -41,8 +43,8 @@ function SearchTitles() {
   }, []);
 
   return (<div>
-    <SearchAutocomplete title={title} />
-    <ComplexGrid ohjelmat={ohjelmat} />
+    <SearchAutocomplete title={title} programsInfo={programsInfo} />
+    <ComplexGrid programs={programs} />
   </div>
   );
 }
