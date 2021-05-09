@@ -77,7 +77,7 @@ function SearchResult(props) {
           query.query.bool.must.push(object);
         } else if (key == "GENRE") {
           var object = { match: { [key]: value } };
-          query.query.bool.should.push(object);
+          query.query.bool.must.push(object);
         }
       }
     } else if (props.location.pathname.substring(8)) {
