@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import LanguageIcon from '@material-ui/icons/Language';
+import BallotIcon from '@material-ui/icons/Ballot';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -41,7 +42,7 @@ console.log(genre);
     <div>
       <Button className={classes.button} onClick={handleOpen}>
       </Button>
-      <LanguageIcon/>
+      <BallotIcon/>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Genre</InputLabel>
         <Select
