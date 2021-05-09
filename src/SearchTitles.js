@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import SearchAutocomplete from "./SearchAutocomplete";
-import ComplexGrid from './ComplexGrid';
+import Showcase from './Showcase';
 
 function SearchTitles() {
   const [title, setTitle] = useState([]);
@@ -44,7 +44,7 @@ function SearchTitles() {
 
   return (<div>
     <SearchAutocomplete title={title} programsInfo={programsInfo} />
-    <ComplexGrid programs={programs} />
+    <Showcase programs={programs} />
   </div>
   );
 }

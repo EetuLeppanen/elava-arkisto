@@ -14,7 +14,7 @@ import Switch from "@material-ui/core/Switch";
 import WebIcon from "@material-ui/icons/Web";
 import TvIcon from "@material-ui/icons/Tv";
 import { NoEncryption } from "@material-ui/icons";
-
+import yle from './yle.png';
 function TvCard(props) {
   const useStyles = makeStyles({
     ohjelma: {
@@ -82,6 +82,7 @@ function TvCard(props) {
                 </Grid>
               </Grid>
             </div>
+            <img src={yle} alt="kuva" width="85%" />
             <Typography className={classes.font2}></Typography>
             <div className={classes.root}>
               <Grid container spacing={1}>

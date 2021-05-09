@@ -13,7 +13,7 @@ function NoResultsCard(props) {
       font: "poppins",
       padding: 5,
       margin: 30,
-      borderRadius: 35,
+      borderRadius: 9,
       width: "60%",
     },
     ohjelma1: {

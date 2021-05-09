@@ -65,7 +65,6 @@ export default function ComplexGrid(props) {
         ))
       </GridList>
       <br></br>
-      <br></br>
       
       
     </div>

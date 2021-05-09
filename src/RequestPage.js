@@ -12,30 +12,10 @@ function RequestPage (){
           font: "poppins",
           padding: 5,
           margin: 30,
-          borderRadius: 35,
+          borderRadius: 9,
           width: "60%",
         },
-        ohjelma1: {
-          backgroundColor: "#faf5f5",
-          color: "black",
-          font: "poppins",
-          borderRadius: 5,
-        },
-        //Korttien teema
-        font: {
-          backgroundColor: "#faf5f5",
-          color: "black",
-          fontSize: 20,
-          font: "poppins",
-          borderRadius: 50,
-        },
-        font2: {
-          backgroundColor: "#faf5f5",
-          color: "black",
-          fontSize: 30,
-          font: "poppins",
-          borderRadius: 50,
-        },
+       
       });
       const classes = useStyles();
 
