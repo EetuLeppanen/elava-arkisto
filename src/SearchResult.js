@@ -41,91 +41,54 @@ const useStyles = makeStyles({
 function SearchResult(props) {
   const classes = useStyles();
   const [programs, setPrograms] = useState([]);
-  const [maintitle, setMaintitle] = useState('');
-  const [type, setType] = useState('');
-  const [search, setSearch] = useState('');
+  const [maintitle, setMaintitle] = useState("");
+  const [type, setType] = useState("");
+  const [search, setSearch] = useState("");
 
   let query = {
-    "query": {
-      "bool": {
-      "must": [ ],
-      "must_not": [ ],
-      "should": [ ]
-    }},
-    "from": 0,
-    "size": 50,
-    "sort": [ ],
-    "aggs": { }
-    }
+    query: {
+      bool: {
+        must: [],
+        must_not: [],
+        should: [],
+      },
+    },
+    from: 0,
+    size: 50,
+    sort: [],
+    aggs: {},
+  };
 
-  /*
-  let query = {
-    "query": {
-      "bool": {
-      "must": [ ],
-      "must_not": [ ],
-      "should": [
-        {"match_all": {}}
-        ]}},
-    "from": 0,
-    "size": 50,
-    "sort": [ ],
-    "aggs": { }
-    }
-  */
- 
 
-  
-    let { value } = useParams(); //komponentti saa parametreinä hakusanan
+  let { value } = useParams(); //komponentti saa parametreinä hakusanan
 
   useEffect(() => {
-    if(props.location.querydata) {
+    if (props.location.querydata) {
       for (const [key, value] of Object.entries(props.location.querydata)) {
         console.log(`${key}: ${value}`);
         console.log("avain: " + key);
-        if(key == "MAINTITLE") {
-          var object1 = {match: { [key] : ".*" + value + ".*" }}
-          var object2 = {prefix: { [key] : value }}
+        if (key == "MAINTITLE") {
+          var object1 = { match: { [key]: ".*" + value + ".*" } };
+          var object2 = { prefix: { [key]: value } };
           query.query.bool.should.push(object1);
           query.query.bool.should.push(object2);
         } else if (key == "TYPE") {
-          var object = {match: { [key] : value}}
+          var object = { match: { [key]: value } };
           query.query.bool.must.push(object);
         } else if (key == "GENRE") {
-          var object = {match: { [key] : value}}
+          var object = { match: { [key]: value } };
           query.query.bool.should.push(object);
         }
-      } 
-
-      /*/
-      var paramlist = Object.keys(props.location.querydata)
-      console.log(paramlist)
-      for (var i in paramlist) {
-        var param = paramlist[i]
-        console.log(param)
-        console.log('param: ' + props.location.querydata.param)
-        query.query.bool.should.push({
-            "prefix": props.location.querydata.param
-        })
       }
-      */
     } else if (props.location.pathname.substring(8)) {
-      var object = {match: { MAINTITLE : props.location.pathname.substring(8) }}
+      var object = {
+        match: { MAINTITLE: props.location.pathname.substring(8) },
+      };
       query.query.bool.should.push(object);
     }
-    
+
     console.log(query);
-    /*
-    const query = {
-      query: {
-        match: {
-          MAINTITLE: <text>"</text> + value + <text>"</text>,
-          //ohjelma tekee get pyynnön elasticsearchiin parametrinä saadulla hakusanalla
-        },
-        
-      },
-    };
-    */
+
     axios
       .get("http://46.101.128.190:9200/testataan/_doc/_search", {
         // get pyyntö elasticsearchiin
@@ -140,22 +103,20 @@ function SearchResult(props) {
         var list = [];
         res.data.hits.hits.map((program, index) => {
           if (program._score > 1) {
-            list.push(program)
+            list.push(program);
           }
-        })
+        });
         setPrograms(list); //tulos asetetaan muuttujaan
       });
   }, []);
 
   if (programs.length > 0) {
-    
     return programs.map((program, index) => {
-
-        if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma
-        if (program._source.TYPE === "tv") return <TvCard data={program} />;       //jos tulos on tv-ohjelma
+      if (program._source.TYPE === "radio") return <RadioCard data={program} />; //jos tulos on radioohjelma
+      if (program._source.TYPE === "tv") return <TvCard data={program} />; //jos tulos on tv-ohjelma
     });
   } else {
-    return <NoResultsCard/>
+    return <NoResultsCard />;
   }
 }
 export default SearchResult;

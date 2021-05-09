@@ -52,43 +52,40 @@ function RadioCard(props) {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", flexGrow: 1 }}>
-    <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
-      <CardContent>
-        <Fade>
-          <div>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <p>
-                  {" "}
-                  <b>
-                    <h2>
-                      {props.data._source.MAINTITLE.replace(/[0-9,()]/g, "")}
-                    </h2>
-                  </b>{" "}
-                </p>
+      <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
+        <CardContent>
+          <Fade>
+            <div>
+              <Grid container spacing={3}>
+                <Grid item xs={12}>
+                  <p>
+                    {" "}
+                    <b>
+                      <h2>
+                        {props.data._source.MAINTITLE.replace(/[0-9,()]/g, "")}
+                      </h2>
+                    </b>{" "}
+                  </p>
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-          <Typography className={classes.font2}></Typography>
-          <div className={classes.root}>
-            <Grid container spacing={1}>
-              <Grid item xs={2}>
-                <p>
-                  <b>Radio-ohjelma</b>
-                </p>
+            </div>
+            <Typography className={classes.font2}></Typography>
+            <div className={classes.root}>
+              <Grid container spacing={1}>
+                <Grid item xs={2}>
+                  <p>
+                    <b>Radio-ohjelma</b>
+                  </p>
+                </Grid>
+                <Grid item xs={3}></Grid>
               </Grid>
-              <Grid item xs={3}>
-               
-              </Grid>
-            </Grid>
-          </div>
+            </div>
 
-          <p>{props.data._source.DESC}</p>
-     
-        </Fade>
-      </CardContent>
-    </Card>
-  </div>
-);
+            <p>{props.data._source.DESC}</p>
+          </Fade>
+        </CardContent>
+      </Card>
+    </div>
+  );
 }
 export default RadioCard;

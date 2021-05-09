@@ -2,7 +2,6 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
-import thankyoupic from './thankyoupic.jpg';
 
 function FeedbackCard(props) {
     const useStyles = makeStyles({
@@ -30,20 +29,23 @@ function FeedbackCard(props) {
 
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", flexGrow: 1 }}>
-            <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
-                <CardContent>
-
-                    Törmäsitkö ongelmaan tai haluaisit antaa kehitysehdotuksen? Lähetä meille 
-                     <Mailto email="innovatiimi@hotmail.com" subject="Palautelomake" body="Hei InnovaTeam! Pidin... En pitänyt..."> sähköpostia! </Mailto>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                </CardContent>
-       
-            </Card>
-        </div>
+      <div style={{ display: "flex", justifyContent: "center", flexGrow: 1 }}>
+        <Card className={classes.ohjelma} style={{ minWidth: 1, minHeight: 1 }}>
+          <CardContent>
+            Törmäsitkö ongelmaan tai haluaisit antaa kehitysehdotuksen? Lähetä
+            meille
+            <Mailto
+              email="innovatiimi@hotmail.com"
+              subject="Palautelomake"
+              body="Hei InnovaTeam! Pidin... En pitänyt..."
+            >
+              {" "}
+              sähköpostia!{" "}
+            </Mailto>
+            <br />
+          </CardContent>
+        </Card>
+      </div>
     );
 }
 export default FeedbackCard;

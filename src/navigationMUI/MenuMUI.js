@@ -22,51 +22,57 @@ function MenuMUI () {
   const handleClose = () => { setMenuOpen(null); }
 
   return (
-    <div style={{width: "100%"}}>
-    <AppBar position='static'>
-      <Toolbar>
-         <IconButton onClick={ handleMenu } color='inherit'><MenuIcon /></IconButton>
-         <Typography variant='h5' style={ {width: 100, flexGrow: 1, textAlign: 'center'}  }>
-         
-         Elävä arkisto
-         
-  </Typography>
-      </Toolbar>
-    </AppBar>
+    <div style={{ width: "100%" }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton onClick={handleMenu} color="inherit">
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h5"
+            style={{ width: 100, flexGrow: 1, textAlign: "center" }}
+          >
+            Elävä arkisto
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
-    <MenuList>
-      <Menu
-        anchorEl={ anchorMenu }
-        open={ Boolean(anchorMenu) }
-        anchorOrigin={ {vertical: 'bottom', horizontal: 'left'} }
-        getContentAnchorEl={ null }
-        onClose={ handleClose}>
-          
-        {/*<MenuItem onClick={ handleClose } component={ Link } to='/'> */}
-        {  /* <ListItemIcon><HomeIcon /></ListItemIcon>
+      <MenuList>
+        <Menu
+          anchorEl={anchorMenu}
+          open={Boolean(anchorMenu)}
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          getContentAnchorEl={null}
+          onClose={handleClose}
+        >
+          {/*<MenuItem onClick={ handleClose } component={ Link } to='/'> */}
+          {/* <ListItemIcon><HomeIcon /></ListItemIcon>
         <ListItemText primary='Etusivu' /> */}
-        
-        
-       
-        <MenuItem onClick={ handleClose } component={ Link } to='/hakukone'>
-          <ListItemIcon><SearchIcon /></ListItemIcon>
-          <ListItemText primary='Hae' />
-        </MenuItem>
 
-        <MenuItem onClick={ handleClose } component={ Link } to='/pyyntosivu'>
-          <ListItemIcon><HelpIcon/></ListItemIcon>
-          <ListItemText primary='Pyydä ohjelmaa' />
-        </MenuItem>
+          <MenuItem onClick={handleClose} component={Link} to="/hakukone">
+            <ListItemIcon>
+              <SearchIcon />
+            </ListItemIcon>
+            <ListItemText primary="Hae" />
+          </MenuItem>
 
-        <MenuItem onClick={handleClose} component={Link} to='/palautesivu'>
-          <ListItemIcon><FeedbackIcon /></ListItemIcon>
-          <ListItemText primary='Lähetä palautetta' />
-        </MenuItem>
+          <MenuItem onClick={handleClose} component={Link} to="/pyyntosivu">
+            <ListItemIcon>
+              <HelpIcon />
+            </ListItemIcon>
+            <ListItemText primary="Pyydä ohjelmaa" />
+          </MenuItem>
 
-      </Menu>
-    </MenuList>
-  </div>
-  )
+          <MenuItem onClick={handleClose} component={Link} to="/palautesivu">
+            <ListItemIcon>
+              <FeedbackIcon />
+            </ListItemIcon>
+            <ListItemText primary="Lähetä palautetta" />
+          </MenuItem>
+        </Menu>
+      </MenuList>
+    </div>
+  );
 }
 
 export default MenuMUI;

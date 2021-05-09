@@ -44,22 +44,28 @@ export default function ComplexGrid(props) {
    
       <GridList className={classes.gridList} cols={4}>
         {props.programs.map((ohjelma, index) => {
-          return(
-          <GridListTile key={yle}>
-            <img src={yle} alt="kuva" />
+          return (
+            <GridListTile key={yle}>
+              <img src={yle} alt="kuva" />
 
-            <GridListTileBar
-           
-              subtitle = {<a href={"http://localhost:3000/search/" +ohjelma._source.MAINTITLE}>{ohjelma._source.MAINTITLE}</a>}
-              
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              
-              
-            />
-          </GridListTile>)
+              <GridListTileBar
+                subtitle={
+                  <a
+                    href={
+                      "http://localhost:3000/search/" +
+                      ohjelma._source.MAINTITLE
+                    }
+                  >
+                    {ohjelma._source.MAINTITLE}
+                  </a>
+                }
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+              />
+            </GridListTile>
+          );
 
         })}
         ))

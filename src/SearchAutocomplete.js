@@ -60,9 +60,8 @@ function SearchAutocomplete(props) {
         backgroundColor: "#f2f2f2",
       }}
     >
-        
       <br></br>
-      
+
       <br></br>
       <br></br>
       {/*  <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>  debuggaukseen 
@@ -126,21 +125,20 @@ function SearchAutocomplete(props) {
           </Collapse>
         </Grid>
       </Grid>
-<br></br>
+      <br></br>
       <div style={{ display: "flex", paddingLeft: "62%", flexGrow: 1 }}>
-
         <FormControlLabel
           control={<Switch checked={checked} onChange={handleChange} />}
           label="Tarkenna hakua"
         />
       </div>
-      
+
       <br></br>
-      
-      
-      
-     <p><b> Viimeksi lisätyt</b></p>
-     <br></br>
-    </div> 
+
+      <p>
+        <b> Viimeksi lisätyt</b>
+      </p>
+      <br></br>
+    </div>
   ); }
 export default SearchAutocomplete;

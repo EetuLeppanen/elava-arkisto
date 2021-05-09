@@ -6,7 +6,6 @@ import Showcase from './Showcase';
 
 function SearchTitles() {
   const [title, setTitle] = useState([]);
-  const [programsInfo, setProgramsInfo] = useState([]);
   const [programs, setPrograms] = useState([]);
 
   //Tullaan käyttämään myöhemmin, const hakusanalle
@@ -35,7 +34,6 @@ function SearchTitles() {
         for (var i = 0; i < res.data.hits.hits.length; i++) {
           //Käydään palautunut tiedosto läpi ja kerätään siitä otsikot talteen
           title.push(res.data.hits.hits[i]._source.MAINTITLE.replace(/[0-9,()]/g, ''));
-          programsInfo.push(res.data.hits.hits[i]._source);
         }
 
         console.log(title);
@@ -43,13 +41,12 @@ function SearchTitles() {
   }, []);
 
   return (<div>
-    <SearchAutocomplete title={title} programsInfo={programsInfo} />
+    <SearchAutocomplete title={title} />
     <Showcase programs={programs} />
   </div>
   );
 }
 export default SearchTitles;
 
-{
-  /*<input type='text' value={searchterm} onChange = {editSearchterm} placeholder = 'Etsi nimeä!' onClick = { returnSearch }  />  */
-}
+
+  
